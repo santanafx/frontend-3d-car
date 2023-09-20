@@ -1,4 +1,3 @@
-import cars from './assets/images/cars.png'
 import { useState, useEffect } from 'react'
 import Map, {
   FullscreenControl,
@@ -9,6 +8,18 @@ import Map, {
   NavigationControl
 } from 'react-map-gl'
 
+import cars from './assets/images/cars.png'
+
+type Route = {
+  acquisition_time: string
+  acquisition_time_unix: number
+  address: string
+  direction: number
+  latitude: number
+  longitude: number
+  speed: number
+}
+
 function App() {
   const [viewState, setViewState] = useState({
     longitude: -46.28054,
@@ -16,25 +27,25 @@ function App() {
     zoom: 12
   })
 
-  const [start, setStart] = useState([])
-  const [end, setEnd] = useState([])
-  const [coords, setCoords] = useState([])
+  const [start, setStart] = useState<number[]>([])
+  const [end, setEnd] = useState<number[]>([])
+  const [coords, setCoords] = useState<number[]>([])
 
-  const [routes1, setRoutes1] = useState([])
-  const [routes1Start, setRoutes1Start] = useState()
-  const [routes2, setRoutes2] = useState([])
-  const [routes2Start, setRoutes2Start] = useState()
-  const [routes3, setRoutes3] = useState([])
-  const [routes3Start, setRoutes3Start] = useState()
-  const [routes4, setRoutes4] = useState([])
-  const [routes4Start, setRoutes4Start] = useState()
-  const [routes5, setRoutes5] = useState([])
-  const [routes5Start, setRoutes5Start] = useState()
-  const [currentLocationIndex1, setCurrentLocationIndex1] = useState()
-  const [currentLocationIndex2, setCurrentLocationIndex2] = useState()
-  const [currentLocationIndex3, setCurrentLocationIndex3] = useState()
-  const [currentLocationIndex4, setCurrentLocationIndex4] = useState()
-  const [currentLocationIndex5, setCurrentLocationIndex5] = useState()
+  const [routes1, setRoutes1] = useState<Route[]>([])
+  const [routes1Start, setRoutes1Start] = useState<boolean>()
+  const [routes2, setRoutes2] = useState<Route[]>([])
+  const [routes2Start, setRoutes2Start] = useState<boolean>()
+  const [routes3, setRoutes3] = useState<Route[]>([])
+  const [routes3Start, setRoutes3Start] = useState<boolean>()
+  const [routes4, setRoutes4] = useState<Route[]>([])
+  const [routes4Start, setRoutes4Start] = useState<boolean>()
+  const [routes5, setRoutes5] = useState<Route[]>([])
+  const [routes5Start, setRoutes5Start] = useState<boolean>()
+  const [currentLocationIndex1, setCurrentLocationIndex1] = useState<number>(0)
+  const [currentLocationIndex2, setCurrentLocationIndex2] = useState<number>(0)
+  const [currentLocationIndex3, setCurrentLocationIndex3] = useState<number>(0)
+  const [currentLocationIndex4, setCurrentLocationIndex4] = useState<number>(0)
+  const [currentLocationIndex5, setCurrentLocationIndex5] = useState<number>(0)
 
   useEffect(() => {
     getSimulatedRoute()
@@ -128,11 +139,11 @@ function App() {
     return () => clearInterval(interval)
   }, [currentLocationIndex5, routes5Start])
 
-  const geojson = {
+  const geojson: GeoJSON.FeatureCollection<GeoJSON.LineString> = {
     type: 'FeatureCollection',
     features: [
       {
-        type: 'feature',
+        type: 'Feature',
         geometry: {
           type: 'LineString',
           coordinates: [...coords]
@@ -141,29 +152,16 @@ function App() {
     ]
   }
 
-  const lineStyle = {
-    id: 'roadLayer',
-    type: 'line',
-    layout: {
-      'line-join': 'round',
-      'line-cap': 'round'
-    },
-    paint: {
-      'line-color': 'black',
-      'line-width': 5,
-      'line-opacity': 0.75
-    }
-  }
-
-  const endPoint = {
+  const endPoint: GeoJSON.FeatureCollection<GeoJSON.Point> = {
     type: 'FeatureCollection',
     features: [
       {
-        type: 'feature',
+        type: 'Feature',
         geometry: {
           type: 'Point',
           coordinates: [...end]
-        }
+        },
+        properties: {}
       }
     ]
   }
@@ -178,6 +176,20 @@ function App() {
     paint: {
       'circle-radius': 10,
       'circle-color': '#f30'
+    }
+  }
+
+  const lineStyle = {
+    id: 'roadLayer',
+    type: 'line',
+    layout: {
+      'line-join': 'round',
+      'line-cap': 'round'
+    },
+    paint: {
+      'line-color': 'black',
+      'line-width': 5,
+      'line-opacity': 0.75
     }
   }
 
@@ -237,7 +249,6 @@ function App() {
               longitude={routes1[currentLocationIndex1].longitude}
               latitude={routes1[currentLocationIndex1].latitude}
             >
-              {console.log(routes1[currentLocationIndex1].direction)}
               <div
                 className="car__marker"
                 style={calculateRotationStyle(
@@ -266,7 +277,6 @@ function App() {
               longitude={routes2[currentLocationIndex2].longitude}
               latitude={routes2[currentLocationIndex2].latitude}
             >
-              {console.log(routes2[currentLocationIndex2].direction)}
               <div
                 className="car__marker"
                 style={calculateRotationStyle(
@@ -294,7 +304,6 @@ function App() {
               longitude={routes3[currentLocationIndex3].longitude}
               latitude={routes3[currentLocationIndex3].latitude}
             >
-              {console.log(routes3[currentLocationIndex3].direction)}
               <div
                 className="car__marker"
                 style={calculateRotationStyle(
@@ -322,7 +331,6 @@ function App() {
               longitude={routes4[currentLocationIndex4].longitude}
               latitude={routes4[currentLocationIndex4].latitude}
             >
-              {console.log(routes4[currentLocationIndex4].direction)}
               <div
                 className="car__marker"
                 style={calculateRotationStyle(
@@ -350,7 +358,6 @@ function App() {
               longitude={routes5[currentLocationIndex5].longitude}
               latitude={routes5[currentLocationIndex5].latitude}
             >
-              {console.log(routes5[currentLocationIndex5].direction)}
               <div
                 className="car__marker"
                 style={calculateRotationStyle(
