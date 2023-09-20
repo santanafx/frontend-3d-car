@@ -1,0 +1,9 @@
+.car__marker {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  overflow: hidden;
+  &__img {
+    transform-origin: center center;
+  }
+}

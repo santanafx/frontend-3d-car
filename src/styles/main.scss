@@ -1,76 +1,7 @@
+@use 'carMarker';
+
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
-
-.car__marker {
-  position: relative;
-  width: 150px; /* Largura da imagem do carro */
-  height: 150px; /* Altura da imagem do carro */
-  overflow: hidden;
-  &__img {
-    transform-origin: center center; /* Define o ponto de rotação no centro da imagem */
-  }
-}
-
-// $car-size: 1;
-
-// .car__marker {
-//   width: calc(150px * #{$car-size});
-//   height: calc(150px * #{$car-size});
-//   // background: red;
-//   overflow: hidden;
-// }
-
-// .sprites__north {
-//   animation: north 1s steps(120) infinite;
-// }
-
-// .sprites__south {
-//   animation: south 1s steps(120) infinite;
-// }
-
-// .sprites__west {
-//   animation: west 1s steps(120) infinite;
-// }
-
-// .sprites__east {
-//   animation: east 1s steps(120) infinite;
-// }
-
-// @keyframes north {
-//   from {
-//     transform: translate(-0%, 0);
-//   }
-//   to {
-//     transform: translate(-0%, 0);
-//   }
-// }
-
-// @keyframes south {
-//   from {
-//     transform: translate(-0%, 0);
-//   }
-//   to {
-//     transform: translate(-0%, 0);
-//   }
-// }
-
-// @keyframes west {
-//   from {
-//     transform: translate(-30%, 0);
-//   }
-//   to {
-//     transform: translate(-30%, 0);
-//   }
-// }
-
-// @keyframes east {
-//   from {
-//     transform: translate(-65%, 0);
-//   }
-//   to {
-//     transform: translate(-65%, 0);
-//   }
-// }

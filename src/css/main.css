@@ -1,18 +1,17 @@
-@charset "UTF-8";
+.car__marker {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  overflow: hidden;
+}
+.car__marker__img {
+  transform-origin: center center;
+}
+
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-}
-
-.car__marker {
-  position: relative;
-  width: 150px; /* Largura da imagem do carro */
-  height: 150px; /* Altura da imagem do carro */
-  overflow: hidden;
-}
-.car__marker__img {
-  transform-origin: center center; /* Define o ponto de rotação no centro da imagem */
 }
 
 /*# sourceMappingURL=main.css.map */
