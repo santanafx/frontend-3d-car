@@ -1,5 +1,5 @@
-import car from './assets/images/car.png'
-import cars from './assets/images/cars.png'
+// import car from './assets/images/car.png'
+// import cars from './assets/images/cars.png'
 import { useState, useEffect } from 'react'
 import Map, {
   FullscreenControl,
@@ -20,33 +20,33 @@ function App() {
   const [start, setStart] = useState([])
   const [end, setEnd] = useState([])
   const [coords, setCoords] = useState([])
+
   const [routes1, setRoutes1] = useState([])
-  const [routes1Start, setRoutes1Start] = useState(false)
+  const [routes1Start, setRoutes1Start] = useState()
   const [routes2, setRoutes2] = useState([])
-  const [routes2Start, setRoutes2Start] = useState(false)
+  const [routes2Start, setRoutes2Start] = useState()
   const [routes3, setRoutes3] = useState([])
-  const [routes3Start, setRoutes3Start] = useState(false)
+  const [routes3Start, setRoutes3Start] = useState()
   const [routes4, setRoutes4] = useState([])
-  const [routes4Start, setRoutes4Start] = useState(false)
+  const [routes4Start, setRoutes4Start] = useState()
   const [routes5, setRoutes5] = useState([])
-  const [routes5Start, setRoutes5Start] = useState(false)
-  const [currentLocationIndex1, setCurrentLocationIndex1] = useState(0)
-  const [currentLocationIndex2, setCurrentLocationIndex2] = useState(0)
-  const [currentLocationIndex3, setCurrentLocationIndex3] = useState(0)
-  const [currentLocationIndex4, setCurrentLocationIndex4] = useState(0)
-  const [currentLocationIndex5, setCurrentLocationIndex5] = useState(0)
+  const [routes5Start, setRoutes5Start] = useState()
+  const [currentLocationIndex1, setCurrentLocationIndex1] = useState()
+  const [currentLocationIndex2, setCurrentLocationIndex2] = useState()
+  const [currentLocationIndex3, setCurrentLocationIndex3] = useState()
+  const [currentLocationIndex4, setCurrentLocationIndex4] = useState()
+  const [currentLocationIndex5, setCurrentLocationIndex5] = useState()
 
   useEffect(() => {
-    getRoute()
     getSimulatedRoute()
-  }, [end, start])
+    getRoute()
+  }, [start, end])
 
   const getRoute = async () => {
     const response = await fetch(
       `https://api.mapbox.com/directions/v5/mapbox/driving/${start[0]},${start[1]};${end[0]},${end[1]}?steps=true&geometries=geojson&access_token=pk.eyJ1Ijoic2FudGFuYWZ4IiwiYSI6ImNsbXF2aXFhdDAxaDAyaXBqMXRvb2IxNnIifQ.tqESIHRN6mDXgVvKEVeQRQ`
     )
     const data = await response.json()
-
     const coords = data.routes[0].geometry.coordinates
     setCoords(coords)
   }
@@ -54,8 +54,6 @@ function App() {
   const getSimulatedRoute = async () => {
     const response = await fetch('./frontend_data_gps.json')
     const data = await response.json()
-
-    console.log(data.courses)
 
     setRoutes1(data.courses[0].gps)
     setRoutes2(data.courses[1].gps)
@@ -69,8 +67,8 @@ function App() {
       if (currentLocationIndex1 < routes1.length - 1) {
         setCurrentLocationIndex1(currentLocationIndex1 + 1)
         console.log(currentLocationIndex1)
-      } else if (currentLocationIndex1 === routes1.length) {
-        setRoutes2Start(!routes1Start)
+      } else if (currentLocationIndex1 === routes1.length - 1) {
+        setRoutes1Start(false)
       }
     }, 1000)
 
@@ -84,8 +82,8 @@ function App() {
       if (currentLocationIndex2 < routes2.length - 1) {
         setCurrentLocationIndex2(currentLocationIndex2 + 1)
         console.log(currentLocationIndex2)
-      } else if (currentLocationIndex2 === routes2.length) {
-        setRoutes2Start(!routes2Start)
+      } else if (currentLocationIndex2 === routes2.length - 1) {
+        setRoutes2Start(false)
       }
     }, 1000)
 
@@ -97,8 +95,8 @@ function App() {
       if (currentLocationIndex3 < routes3.length - 1) {
         setCurrentLocationIndex3(currentLocationIndex3 + 1)
         console.log(currentLocationIndex3)
-      } else if (currentLocationIndex3 === routes3.length) {
-        setRoutes2Start(!routes3Start)
+      } else if (currentLocationIndex3 === routes3.length - 1) {
+        setRoutes3Start(false)
       }
     }, 1000)
 
@@ -110,8 +108,8 @@ function App() {
       if (currentLocationIndex4 < routes4.length - 1) {
         setCurrentLocationIndex4(currentLocationIndex4 + 1)
         console.log(currentLocationIndex4)
-      } else if (currentLocationIndex4 === routes4.length) {
-        setRoutes2Start(!routes4Start)
+      } else if (currentLocationIndex4 === routes4.length - 1) {
+        setRoutes4Start(false)
       }
     }, 1000)
 
@@ -123,8 +121,8 @@ function App() {
       if (currentLocationIndex5 < routes5.length - 1) {
         setCurrentLocationIndex5(currentLocationIndex5 + 1)
         console.log(currentLocationIndex5)
-      } else if (currentLocationIndex5 === routes5.length) {
-        setRoutes2Start(!routes5Start)
+      } else if (currentLocationIndex5 === routes5.length - 1) {
+        setRoutes5Start(false)
       }
     }, 1000)
 
@@ -188,31 +186,31 @@ function App() {
     setCurrentLocationIndex1(0)
     setStart([-46.28054, -23.963214])
     setEnd([-46.278736, -23.913536])
-    setRoutes1Start(!routes1Start)
+    setRoutes1Start(true)
   }
   const startRoute2 = () => {
     setCurrentLocationIndex2(0)
     setStart([-46.278702, -23.913509])
     setEnd([-46.280632, -23.963248])
-    setRoutes2Start(!routes2Start)
+    setRoutes2Start(true)
   }
   const startRoute3 = () => {
     setCurrentLocationIndex3(0)
     setStart([-46.280566, -23.963217])
-    setEnd([-46.278736, -23.913536])
-    setRoutes3Start(!routes3Start)
+    setEnd([-46.282903, -23.964515])
+    setRoutes3Start(true)
   }
   const startRoute4 = () => {
     setCurrentLocationIndex4(0)
     setStart([-46.282916, -23.964503])
     setEnd([-46.265922, -23.973034])
-    setRoutes4Start(!routes4Start)
+    setRoutes4Start(true)
   }
   const startRoute5 = () => {
     setCurrentLocationIndex5(0)
     setStart([-46.265751, -23.973013])
     setEnd([-46.27787, -23.963164])
-    setRoutes5Start(!routes5Start)
+    setRoutes5Start(true)
   }
 
   return (
@@ -228,7 +226,7 @@ function App() {
         <FullscreenControl />
         <NavigationControl />
 
-        {currentLocationIndex1 < routes1.length && routes1Start === true && (
+        {routes1Start === true ? (
           <>
             <Marker
               longitude={routes1[currentLocationIndex1].longitude}
@@ -245,18 +243,18 @@ function App() {
               <Layer {...layerEndpoint} />
             </Source>
           </>
+        ) : (
+          ''
         )}
 
-        {currentLocationIndex2 < routes2.length && (
-          <Marker
-            longitude={routes2[currentLocationIndex2].longitude}
-            latitude={routes2[currentLocationIndex2].latitude}
-          >
-            <div className="marker">📍</div>
-          </Marker>
-        )}
-        {routes2Start === true && (
+        {routes2Start === true ? (
           <>
+            <Marker
+              longitude={routes2[currentLocationIndex2].longitude}
+              latitude={routes2[currentLocationIndex2].latitude}
+            >
+              <div className="marker">📍</div>
+            </Marker>
             <Source id="routeSource" type="geojson" data={geojson}>
               <Layer {...lineStyle} />
             </Source>
@@ -265,18 +263,18 @@ function App() {
               <Layer {...layerEndpoint} />
             </Source>
           </>
+        ) : (
+          ''
         )}
 
-        {currentLocationIndex3 < routes3.length && (
-          <Marker
-            longitude={routes3[currentLocationIndex3].longitude}
-            latitude={routes3[currentLocationIndex3].latitude}
-          >
-            <div className="marker">📍</div>
-          </Marker>
-        )}
-        {routes3Start === true && (
+        {routes3Start === true ? (
           <>
+            <Marker
+              longitude={routes3[currentLocationIndex3].longitude}
+              latitude={routes3[currentLocationIndex3].latitude}
+            >
+              <div className="marker">📍</div>
+            </Marker>
             <Source id="routeSource" type="geojson" data={geojson}>
               <Layer {...lineStyle} />
             </Source>
@@ -285,18 +283,18 @@ function App() {
               <Layer {...layerEndpoint} />
             </Source>
           </>
+        ) : (
+          ''
         )}
 
-        {currentLocationIndex4 < routes4.length && (
-          <Marker
-            longitude={routes4[currentLocationIndex4].longitude}
-            latitude={routes4[currentLocationIndex4].latitude}
-          >
-            <div className="marker">📍</div>
-          </Marker>
-        )}
-        {routes4Start === true && (
+        {routes4Start === true ? (
           <>
+            <Marker
+              longitude={routes4[currentLocationIndex4].longitude}
+              latitude={routes4[currentLocationIndex4].latitude}
+            >
+              <div className="marker">📍</div>
+            </Marker>
             <Source id="routeSource" type="geojson" data={geojson}>
               <Layer {...lineStyle} />
             </Source>
@@ -305,18 +303,18 @@ function App() {
               <Layer {...layerEndpoint} />
             </Source>
           </>
+        ) : (
+          ''
         )}
 
-        {currentLocationIndex5 < routes5.length && (
-          <Marker
-            longitude={routes5[currentLocationIndex5].longitude}
-            latitude={routes5[currentLocationIndex5].latitude}
-          >
-            <div className="marker">📍</div>
-          </Marker>
-        )}
-        {routes5Start === true && (
+        {routes5Start === true ? (
           <>
+            <Marker
+              longitude={routes5[currentLocationIndex5].longitude}
+              latitude={routes5[currentLocationIndex5].latitude}
+            >
+              <div className="marker">📍</div>
+            </Marker>
             <Source id="routeSource" type="geojson" data={geojson}>
               <Layer {...lineStyle} />
             </Source>
@@ -325,6 +323,8 @@ function App() {
               <Layer {...layerEndpoint} />
             </Source>
           </>
+        ) : (
+          ''
         )}
       </Map>
       <button onClick={startRoute1}>Iniciar rota 1</button>
