@@ -1,5 +1,4 @@
-// import car from './assets/images/car.png'
-// import cars from './assets/images/cars.png'
+import cars from './assets/images/cars.png'
 import { useState, useEffect } from 'react'
 import Map, {
   FullscreenControl,
@@ -213,6 +212,12 @@ function App() {
     setRoutes5Start(true)
   }
 
+  const calculateRotationStyle = (angle: number) => {
+    return {
+      transform: `rotate(${angle}deg)`
+    }
+  }
+
   return (
     <>
       <Map
@@ -232,7 +237,15 @@ function App() {
               longitude={routes1[currentLocationIndex1].longitude}
               latitude={routes1[currentLocationIndex1].latitude}
             >
-              <div className="marker">📍</div>
+              {console.log(routes1[currentLocationIndex1].direction)}
+              <div
+                className="car__marker"
+                style={calculateRotationStyle(
+                  routes1[currentLocationIndex1].direction
+                )}
+              >
+                <img className="car__marker__img" src={cars} alt="" />
+              </div>
             </Marker>
 
             <Source id="routeSource" type="geojson" data={geojson}>
@@ -253,7 +266,15 @@ function App() {
               longitude={routes2[currentLocationIndex2].longitude}
               latitude={routes2[currentLocationIndex2].latitude}
             >
-              <div className="marker">📍</div>
+              {console.log(routes2[currentLocationIndex2].direction)}
+              <div
+                className="car__marker"
+                style={calculateRotationStyle(
+                  routes2[currentLocationIndex2].direction
+                )}
+              >
+                <img className="car__marker__img" src={cars} alt="" />
+              </div>
             </Marker>
             <Source id="routeSource" type="geojson" data={geojson}>
               <Layer {...lineStyle} />
@@ -273,7 +294,15 @@ function App() {
               longitude={routes3[currentLocationIndex3].longitude}
               latitude={routes3[currentLocationIndex3].latitude}
             >
-              <div className="marker">📍</div>
+              {console.log(routes3[currentLocationIndex3].direction)}
+              <div
+                className="car__marker"
+                style={calculateRotationStyle(
+                  routes3[currentLocationIndex3].direction
+                )}
+              >
+                <img className="car__marker__img" src={cars} alt="" />
+              </div>
             </Marker>
             <Source id="routeSource" type="geojson" data={geojson}>
               <Layer {...lineStyle} />
@@ -293,7 +322,15 @@ function App() {
               longitude={routes4[currentLocationIndex4].longitude}
               latitude={routes4[currentLocationIndex4].latitude}
             >
-              <div className="marker">📍</div>
+              {console.log(routes4[currentLocationIndex4].direction)}
+              <div
+                className="car__marker"
+                style={calculateRotationStyle(
+                  routes4[currentLocationIndex4].direction
+                )}
+              >
+                <img className="car__marker__img" src={cars} alt="" />
+              </div>
             </Marker>
             <Source id="routeSource" type="geojson" data={geojson}>
               <Layer {...lineStyle} />
@@ -313,7 +350,15 @@ function App() {
               longitude={routes5[currentLocationIndex5].longitude}
               latitude={routes5[currentLocationIndex5].latitude}
             >
-              <div className="marker">📍</div>
+              {console.log(routes5[currentLocationIndex5].direction)}
+              <div
+                className="car__marker"
+                style={calculateRotationStyle(
+                  routes5[currentLocationIndex5].direction
+                )}
+              >
+                <img className="car__marker__img" src={cars} alt="" />
+              </div>
             </Marker>
             <Source id="routeSource" type="geojson" data={geojson}>
               <Layer {...lineStyle} />
