@@ -3,3 +3,64 @@
   margin: 0;
   box-sizing: border-box;
 }
+
+$car-size: 1;
+
+.cars {
+  width: calc(150px * #{$car-size});
+  height: calc(150px * #{$car-size});
+  // background: red;
+  overflow: hidden;
+}
+
+.sprites__north {
+  animation: north 1s steps(120) infinite;
+}
+
+.sprites__south {
+  animation: south 1s steps(120) infinite;
+}
+
+.sprites__west {
+  animation: west 1s steps(120) infinite;
+}
+
+.sprites__east {
+  animation: east 1s steps(120) infinite;
+}
+
+@keyframes north {
+  from {
+    transform: translate(-0%, 0);
+  }
+  to {
+    transform: translate(-0%, 0);
+  }
+}
+
+@keyframes south {
+  from {
+    transform: translate(-0%, 0);
+  }
+  to {
+    transform: translate(-0%, 0);
+  }
+}
+
+@keyframes west {
+  from {
+    transform: translate(-30%, 0);
+  }
+  to {
+    transform: translate(-30%, 0);
+  }
+}
+
+@keyframes east {
+  from {
+    transform: translate(-65%, 0);
+  }
+  to {
+    transform: translate(-65%, 0);
+  }
+}
