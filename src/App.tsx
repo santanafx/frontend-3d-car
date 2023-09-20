@@ -8,17 +8,10 @@ import Map, {
   NavigationControl
 } from 'react-map-gl'
 
-import cars from './assets/images/cars.png'
+import { Route } from './types'
 
-type Route = {
-  acquisition_time: string
-  acquisition_time_unix: number
-  address: string
-  direction: number
-  latitude: number
-  longitude: number
-  speed: number
-}
+import CarMarker from './components/CarMarker'
+import BestRoute from './components/BestRoute'
 
 function App() {
   const [viewState, setViewState] = useState({
@@ -29,7 +22,6 @@ function App() {
 
   const [start, setStart] = useState<number[]>([])
   const [end, setEnd] = useState<number[]>([])
-  const [coords, setCoords] = useState<number[]>([])
 
   const [routes1, setRoutes1] = useState<Route[]>([])
   const [routes1Start, setRoutes1Start] = useState<boolean>()
@@ -52,17 +44,7 @@ function App() {
 
   useEffect(() => {
     getSimulatedRoute()
-    getRoute()
-  }, [start, end])
-
-  const getRoute = async () => {
-    const response = await fetch(
-      `https://api.mapbox.com/directions/v5/mapbox/driving/${start[0]},${start[1]};${end[0]},${end[1]}?steps=true&geometries=geojson&access_token=pk.eyJ1Ijoic2FudGFuYWZ4IiwiYSI6ImNsbXF2aXFhdDAxaDAyaXBqMXRvb2IxNnIifQ.tqESIHRN6mDXgVvKEVeQRQ`
-    )
-    const data = await response.json()
-    const coords = data.routes[0].geometry.coordinates
-    setCoords(coords)
-  }
+  }, [])
 
   const getSimulatedRoute = async () => {
     const response = await fetch('./frontend_data_gps.json')
@@ -142,60 +124,6 @@ function App() {
     return () => clearInterval(interval)
   }, [currentLocationIndex5, routes5Start])
 
-  const geojson: GeoJSON.FeatureCollection<GeoJSON.LineString> = {
-    type: 'FeatureCollection',
-    features: [
-      {
-        type: 'Feature',
-        geometry: {
-          type: 'LineString',
-          coordinates: [...coords]
-        }
-      }
-    ]
-  }
-
-  const endPoint: GeoJSON.FeatureCollection<GeoJSON.Point> = {
-    type: 'FeatureCollection',
-    features: [
-      {
-        type: 'Feature',
-        geometry: {
-          type: 'Point',
-          coordinates: [...end]
-        },
-        properties: {}
-      }
-    ]
-  }
-
-  const layerEndpoint = {
-    id: 'end',
-    type: 'circle',
-    source: {
-      type: 'geojson',
-      data: end
-    },
-    paint: {
-      'circle-radius': 10,
-      'circle-color': '#f30'
-    }
-  }
-
-  const lineStyle = {
-    id: 'roadLayer',
-    type: 'line',
-    layout: {
-      'line-join': 'round',
-      'line-cap': 'round'
-    },
-    paint: {
-      'line-color': 'black',
-      'line-width': 5,
-      'line-opacity': 0.75
-    }
-  }
-
   const startRoute1 = () => {
     setCurrentLocationIndex1(0)
     setStart([-46.28054, -23.963214])
@@ -227,12 +155,6 @@ function App() {
     setRoutes5Start(true)
   }
 
-  const calculateRotationStyle = (angle: number) => {
-    return {
-      transform: `rotate(${angle}deg)`
-    }
-  }
-
   const showBestRoute = () => {
     setBestRoute(!bestRoute)
   }
@@ -252,31 +174,12 @@ function App() {
 
         {routes1Start === true ? (
           <>
-            <Marker
+            <CarMarker
               longitude={routes1[currentLocationIndex1].longitude}
               latitude={routes1[currentLocationIndex1].latitude}
-            >
-              <div
-                className="car__marker"
-                style={calculateRotationStyle(
-                  routes1[currentLocationIndex1].direction
-                )}
-              >
-                <img className="car__marker__img" src={cars} alt="" />
-              </div>
-            </Marker>
-
-            {bestRoute === true && (
-              <>
-                <Source id="routeSource" type="geojson" data={geojson}>
-                  <Layer {...lineStyle} />
-                </Source>
-
-                <Source id="endSource" type="geojson" data={endPoint}>
-                  <Layer {...layerEndpoint} />
-                </Source>
-              </>
-            )}
+              direction={routes1[currentLocationIndex1].direction}
+            />
+            {bestRoute === true && <BestRoute start={start} end={end} />}
           </>
         ) : (
           ''
@@ -284,30 +187,12 @@ function App() {
 
         {routes2Start === true ? (
           <>
-            <Marker
+            <CarMarker
               longitude={routes2[currentLocationIndex2].longitude}
               latitude={routes2[currentLocationIndex2].latitude}
-            >
-              <div
-                className="car__marker"
-                style={calculateRotationStyle(
-                  routes2[currentLocationIndex2].direction
-                )}
-              >
-                <img className="car__marker__img" src={cars} alt="" />
-              </div>
-            </Marker>
-            {bestRoute === true && (
-              <>
-                <Source id="routeSource" type="geojson" data={geojson}>
-                  <Layer {...lineStyle} />
-                </Source>
-
-                <Source id="endSource" type="geojson" data={endPoint}>
-                  <Layer {...layerEndpoint} />
-                </Source>
-              </>
-            )}
+              direction={routes2[currentLocationIndex2].direction}
+            />
+            {bestRoute === true && <BestRoute start={start} end={end} />}
           </>
         ) : (
           ''
@@ -315,30 +200,12 @@ function App() {
 
         {routes3Start === true ? (
           <>
-            <Marker
+            <CarMarker
               longitude={routes3[currentLocationIndex3].longitude}
               latitude={routes3[currentLocationIndex3].latitude}
-            >
-              <div
-                className="car__marker"
-                style={calculateRotationStyle(
-                  routes3[currentLocationIndex3].direction
-                )}
-              >
-                <img className="car__marker__img" src={cars} alt="" />
-              </div>
-            </Marker>
-            {bestRoute === true && (
-              <>
-                <Source id="routeSource" type="geojson" data={geojson}>
-                  <Layer {...lineStyle} />
-                </Source>
-
-                <Source id="endSource" type="geojson" data={endPoint}>
-                  <Layer {...layerEndpoint} />
-                </Source>
-              </>
-            )}
+              direction={routes3[currentLocationIndex3].direction}
+            />
+            {bestRoute === true && <BestRoute start={start} end={end} />}
           </>
         ) : (
           ''
@@ -346,30 +213,12 @@ function App() {
 
         {routes4Start === true ? (
           <>
-            <Marker
+            <CarMarker
               longitude={routes4[currentLocationIndex4].longitude}
               latitude={routes4[currentLocationIndex4].latitude}
-            >
-              <div
-                className="car__marker"
-                style={calculateRotationStyle(
-                  routes4[currentLocationIndex4].direction
-                )}
-              >
-                <img className="car__marker__img" src={cars} alt="" />
-              </div>
-            </Marker>
-            {bestRoute === true && (
-              <>
-                <Source id="routeSource" type="geojson" data={geojson}>
-                  <Layer {...lineStyle} />
-                </Source>
-
-                <Source id="endSource" type="geojson" data={endPoint}>
-                  <Layer {...layerEndpoint} />
-                </Source>
-              </>
-            )}
+              direction={routes4[currentLocationIndex4].direction}
+            />
+            {bestRoute === true && <BestRoute start={start} end={end} />}
           </>
         ) : (
           ''
@@ -377,30 +226,12 @@ function App() {
 
         {routes5Start === true ? (
           <>
-            <Marker
+            <CarMarker
               longitude={routes5[currentLocationIndex5].longitude}
               latitude={routes5[currentLocationIndex5].latitude}
-            >
-              <div
-                className="car__marker"
-                style={calculateRotationStyle(
-                  routes5[currentLocationIndex5].direction
-                )}
-              >
-                <img className="car__marker__img" src={cars} alt="" />
-              </div>
-            </Marker>
-            {bestRoute === true && (
-              <>
-                <Source id="routeSource" type="geojson" data={geojson}>
-                  <Layer {...lineStyle} />
-                </Source>
-
-                <Source id="endSource" type="geojson" data={endPoint}>
-                  <Layer {...layerEndpoint} />
-                </Source>
-              </>
-            )}
+              direction={routes5[currentLocationIndex5].direction}
+            />
+            {bestRoute === true && <BestRoute start={start} end={end} />}
           </>
         ) : (
           ''
