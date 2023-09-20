@@ -41,11 +41,14 @@ function App() {
   const [routes4Start, setRoutes4Start] = useState<boolean>()
   const [routes5, setRoutes5] = useState<Route[]>([])
   const [routes5Start, setRoutes5Start] = useState<boolean>()
+
   const [currentLocationIndex1, setCurrentLocationIndex1] = useState<number>(0)
   const [currentLocationIndex2, setCurrentLocationIndex2] = useState<number>(0)
   const [currentLocationIndex3, setCurrentLocationIndex3] = useState<number>(0)
   const [currentLocationIndex4, setCurrentLocationIndex4] = useState<number>(0)
   const [currentLocationIndex5, setCurrentLocationIndex5] = useState<number>(0)
+
+  const [bestRoute, setBestRoute] = useState<boolean>(false)
 
   useEffect(() => {
     getSimulatedRoute()
@@ -230,6 +233,10 @@ function App() {
     }
   }
 
+  const showBestRoute = () => {
+    setBestRoute(!bestRoute)
+  }
+
   return (
     <>
       <Map
@@ -259,13 +266,17 @@ function App() {
               </div>
             </Marker>
 
-            <Source id="routeSource" type="geojson" data={geojson}>
-              <Layer {...lineStyle} />
-            </Source>
+            {bestRoute === true && (
+              <>
+                <Source id="routeSource" type="geojson" data={geojson}>
+                  <Layer {...lineStyle} />
+                </Source>
 
-            <Source id="endSource" type="geojson" data={endPoint}>
-              <Layer {...layerEndpoint} />
-            </Source>
+                <Source id="endSource" type="geojson" data={endPoint}>
+                  <Layer {...layerEndpoint} />
+                </Source>
+              </>
+            )}
           </>
         ) : (
           ''
@@ -286,13 +297,17 @@ function App() {
                 <img className="car__marker__img" src={cars} alt="" />
               </div>
             </Marker>
-            <Source id="routeSource" type="geojson" data={geojson}>
-              <Layer {...lineStyle} />
-            </Source>
+            {bestRoute === true && (
+              <>
+                <Source id="routeSource" type="geojson" data={geojson}>
+                  <Layer {...lineStyle} />
+                </Source>
 
-            <Source id="endSource" type="geojson" data={endPoint}>
-              <Layer {...layerEndpoint} />
-            </Source>
+                <Source id="endSource" type="geojson" data={endPoint}>
+                  <Layer {...layerEndpoint} />
+                </Source>
+              </>
+            )}
           </>
         ) : (
           ''
@@ -313,13 +328,17 @@ function App() {
                 <img className="car__marker__img" src={cars} alt="" />
               </div>
             </Marker>
-            <Source id="routeSource" type="geojson" data={geojson}>
-              <Layer {...lineStyle} />
-            </Source>
+            {bestRoute === true && (
+              <>
+                <Source id="routeSource" type="geojson" data={geojson}>
+                  <Layer {...lineStyle} />
+                </Source>
 
-            <Source id="endSource" type="geojson" data={endPoint}>
-              <Layer {...layerEndpoint} />
-            </Source>
+                <Source id="endSource" type="geojson" data={endPoint}>
+                  <Layer {...layerEndpoint} />
+                </Source>
+              </>
+            )}
           </>
         ) : (
           ''
@@ -340,13 +359,17 @@ function App() {
                 <img className="car__marker__img" src={cars} alt="" />
               </div>
             </Marker>
-            <Source id="routeSource" type="geojson" data={geojson}>
-              <Layer {...lineStyle} />
-            </Source>
+            {bestRoute === true && (
+              <>
+                <Source id="routeSource" type="geojson" data={geojson}>
+                  <Layer {...lineStyle} />
+                </Source>
 
-            <Source id="endSource" type="geojson" data={endPoint}>
-              <Layer {...layerEndpoint} />
-            </Source>
+                <Source id="endSource" type="geojson" data={endPoint}>
+                  <Layer {...layerEndpoint} />
+                </Source>
+              </>
+            )}
           </>
         ) : (
           ''
@@ -367,23 +390,32 @@ function App() {
                 <img className="car__marker__img" src={cars} alt="" />
               </div>
             </Marker>
-            <Source id="routeSource" type="geojson" data={geojson}>
-              <Layer {...lineStyle} />
-            </Source>
+            {bestRoute === true && (
+              <>
+                <Source id="routeSource" type="geojson" data={geojson}>
+                  <Layer {...lineStyle} />
+                </Source>
 
-            <Source id="endSource" type="geojson" data={endPoint}>
-              <Layer {...layerEndpoint} />
-            </Source>
+                <Source id="endSource" type="geojson" data={endPoint}>
+                  <Layer {...layerEndpoint} />
+                </Source>
+              </>
+            )}
           </>
         ) : (
           ''
         )}
       </Map>
-      <button onClick={startRoute1}>Iniciar rota 1</button>
-      <button onClick={startRoute2}>Iniciar rota 2</button>
-      <button onClick={startRoute3}>Iniciar rota 3</button>
-      <button onClick={startRoute4}>Iniciar rota 4</button>
-      <button onClick={startRoute5}>Iniciar rota 5</button>
+      <div>
+        <button onClick={startRoute1}>Iniciar rota 1</button>
+        <button onClick={startRoute2}>Iniciar rota 2</button>
+        <button onClick={startRoute3}>Iniciar rota 3</button>
+        <button onClick={startRoute4}>Iniciar rota 4</button>
+        <button onClick={startRoute5}>Iniciar rota 5</button>
+      </div>
+      <div>
+        <button onClick={showBestRoute}>Esconder/Exibir melhor rota</button>
+      </div>
     </>
   )
 }
