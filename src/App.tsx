@@ -1,3 +1,5 @@
+import car from './assets/images/car.png'
+import cars from './assets/images/cars.png'
 import { useState, useEffect } from 'react'
 import Map, {
   FullscreenControl,
@@ -15,16 +17,16 @@ function App() {
     zoom: 12
   })
 
-  const [start, setStart] = useState([-46.28054, -23.963214])
-  const [end, setEnd] = useState([-46.278736, -23.913536])
+  const [start, setStart] = useState([])
+  const [end, setEnd] = useState([])
   const [coords, setCoords] = useState([])
   const [routes1, setRoutes1] = useState([])
-  const [routes2, setRoutes2] = useState([])
-  const [routes3, setRoutes3] = useState([])
-  const [routes4, setRoutes4] = useState([])
+  const [routes1Start, setRoutes1Start] = useState(false)
+  const [currentLocationIndex, setCurrentLocationIndex] = useState(0)
 
   useEffect(() => {
     getRoute()
+    getSimulatedRoute()
   }, [end, start])
 
   const getRoute = async () => {
@@ -36,6 +38,26 @@ function App() {
     const coords = data.routes[0].geometry.coordinates
     setCoords(coords)
   }
+
+  const getSimulatedRoute = async () => {
+    const response = await fetch('./frontend_data_gps.json')
+    const data = await response.json()
+
+    console.log(data.courses)
+
+    setRoutes1(data.courses[0].gps)
+  }
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (currentLocationIndex < routes1.length - 1) {
+        setCurrentLocationIndex(currentLocationIndex + 1)
+        console.log(currentLocationIndex)
+      }
+    }, 1000)
+
+    return () => clearInterval(interval)
+  }, [currentLocationIndex, routes1Start])
 
   const geojson = {
     type: 'FeatureCollection',
@@ -85,49 +107,51 @@ function App() {
       data: end
     },
     paint: {
-      'circle-radius': 10,
+      'circle-radius': 30,
       'circle-color': '#f30'
     }
   }
 
-  fetch('./frontend_data_gps.json', {
-    headers: {
-      Accept: 'application/json'
-    }
-  }).then((res) =>
-    res.json().then((res) => {
-      setRoutes1(res.courses[0].gps)
-      setRoutes2(res.courses[0].gps)
-      setRoutes3(res.courses[0].gps)
-      setRoutes4(res.courses[0].gps)
-    })
-  )
+  const startRoute1 = () => {
+    setStart([-46.28054, -23.963214])
+    setEnd([-46.278736, -23.913536])
+    setRoutes1Start(!routes1Start)
+  }
 
   return (
-    <Map
-      {...viewState}
-      onMove={(evt) => setViewState(evt.viewState)}
-      mapStyle="mapbox://styles/santanafx/clmquada7053k01qxbeovgszz"
-      mapboxAccessToken="pk.eyJ1Ijoic2FudGFuYWZ4IiwiYSI6ImNsbXF2aXFhdDAxaDAyaXBqMXRvb2IxNnIifQ.tqESIHRN6mDXgVvKEVeQRQ"
-      style={{ width: '90vw', height: '90vh' }}
-    >
-      <GeolocateControl />
-      <FullscreenControl />
-      <NavigationControl />
-      {routes1.map((element) => (
-        <div key={element.acquisition_time}>
-          <Marker longitude={element.longitude} latitude={element.latitude} />
+    <>
+      <Map
+        {...viewState}
+        onMove={(evt) => setViewState(evt.viewState)}
+        mapStyle="mapbox://styles/santanafx/clmquada7053k01qxbeovgszz"
+        mapboxAccessToken="pk.eyJ1Ijoic2FudGFuYWZ4IiwiYSI6ImNsbXF2aXFhdDAxaDAyaXBqMXRvb2IxNnIifQ.tqESIHRN6mDXgVvKEVeQRQ"
+        style={{ width: '90vw', height: '90vh' }}
+      >
+        <GeolocateControl />
+        <FullscreenControl />
+        <NavigationControl />
+        {currentLocationIndex < routes1.length && (
+          <Marker
+            longitude={routes1[currentLocationIndex].longitude}
+            latitude={routes1[currentLocationIndex].latitude}
+          >
+            <div className="marker">📍</div>
+          </Marker>
+        )}
+        {routes1Start === true && (
+          <>
+            <Source id="routeSource" type="geojson" data={geojson}>
+              <Layer {...lineStyle} />
+            </Source>
 
-          <Source id="routeSource" type="geojson" data={geojson}>
-            <Layer {...lineStyle} />
-          </Source>
-
-          <Source id="endSource" type="geojson" data={endPoint}>
-            <Layer {...layerEndpoint} />
-          </Source>
-        </div>
-      ))}
-    </Map>
+            <Source id="endSource" type="geojson" data={endPoint}>
+              <Layer {...layerEndpoint} />
+            </Source>
+          </>
+        )}
+      </Map>
+      <button onClick={startRoute1}>Iniciar rota 1</button>
+    </>
   )
 }
 
