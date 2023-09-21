@@ -2,9 +2,6 @@ import { useState, useEffect } from 'react'
 import Map, {
   FullscreenControl,
   GeolocateControl,
-  Marker,
-  Source,
-  Layer,
   NavigationControl
 } from 'react-map-gl'
 
@@ -34,11 +31,7 @@ function App() {
   const [routes5, setRoutes5] = useState<Route[]>([])
   const [routes5Start, setRoutes5Start] = useState<boolean>()
 
-  const [currentLocationIndex1, setCurrentLocationIndex1] = useState<number>(0)
-  const [currentLocationIndex2, setCurrentLocationIndex2] = useState<number>(0)
-  const [currentLocationIndex3, setCurrentLocationIndex3] = useState<number>(0)
-  const [currentLocationIndex4, setCurrentLocationIndex4] = useState<number>(0)
-  const [currentLocationIndex5, setCurrentLocationIndex5] = useState<number>(0)
+  const [currentLocationIndex, setCurrentLocationIndex] = useState<number>(0)
 
   const [bestRoute, setBestRoute] = useState<boolean>(false)
 
@@ -51,108 +44,131 @@ function App() {
     const data = await response.json()
 
     setRoutes1(data.courses[0].gps)
+    // console.log(routes1[currentLocationIndex1].speed)
     setRoutes2(data.courses[1].gps)
     setRoutes3(data.courses[2].gps)
     setRoutes4(data.courses[3].gps)
     setRoutes5(data.courses[4].gps)
   }
 
-  useEffect(() => {
+  function updateLocation1(routes: Route[]) {
+    // console.log(routes.length)
     const interval = setInterval(() => {
-      if (currentLocationIndex1 < routes1.length - 1) {
-        setCurrentLocationIndex1(currentLocationIndex1 + 1)
-        console.log(currentLocationIndex1)
-      } else if (currentLocationIndex1 === routes1.length - 1) {
-        setRoutes1Start(false)
-      }
+      setCurrentLocationIndex((prevIndex) => {
+        if (prevIndex < routes.length - 1) {
+          console.log(prevIndex)
+          return prevIndex + 1
+        } else {
+          setRoutes1Start(false)
+          clearInterval(interval)
+          return prevIndex
+        }
+      })
     }, 1000)
+  }
 
-    return () => {
-      clearInterval(interval)
-    }
-  }, [currentLocationIndex1, routes1Start])
-
-  useEffect(() => {
+  function updateLocation2(routes: Route[]) {
+    // console.log(routes.length)
     const interval = setInterval(() => {
-      if (currentLocationIndex2 < routes2.length - 1) {
-        setCurrentLocationIndex2(currentLocationIndex2 + 1)
-        console.log(currentLocationIndex2)
-      } else if (currentLocationIndex2 === routes2.length - 1) {
-        setRoutes2Start(false)
-      }
+      setCurrentLocationIndex((prevIndex) => {
+        if (prevIndex < routes.length - 1) {
+          console.log(prevIndex)
+          return prevIndex + 1
+        } else {
+          setRoutes2Start(false)
+          clearInterval(interval)
+          return prevIndex
+        }
+      })
     }, 1000)
+  }
 
-    return () => clearInterval(interval)
-  }, [currentLocationIndex2, routes2Start])
-
-  useEffect(() => {
+  function updateLocation3(routes: Route[]) {
+    // console.log(routes.length)
     const interval = setInterval(() => {
-      if (currentLocationIndex3 < routes3.length - 1) {
-        setCurrentLocationIndex3(currentLocationIndex3 + 1)
-        console.log(currentLocationIndex3)
-      } else if (currentLocationIndex3 === routes3.length - 1) {
-        setRoutes3Start(false)
-      }
+      setCurrentLocationIndex((prevIndex) => {
+        if (prevIndex < routes.length - 1) {
+          console.log(prevIndex)
+          return prevIndex + 1
+        } else {
+          setRoutes3Start(false)
+          clearInterval(interval)
+          return prevIndex
+        }
+      })
     }, 1000)
+  }
 
-    return () => clearInterval(interval)
-  }, [currentLocationIndex3, routes3Start])
-
-  useEffect(() => {
+  function updateLocation4(routes: Route[]) {
+    // console.log(routes.length)
     const interval = setInterval(() => {
-      if (currentLocationIndex4 < routes4.length - 1) {
-        setCurrentLocationIndex4(currentLocationIndex4 + 1)
-        console.log(currentLocationIndex4)
-      } else if (currentLocationIndex4 === routes4.length - 1) {
-        setRoutes4Start(false)
-      }
+      setCurrentLocationIndex((prevIndex) => {
+        if (prevIndex < routes.length - 1) {
+          console.log(prevIndex)
+          return prevIndex + 1
+        } else {
+          setRoutes4Start(false)
+          clearInterval(interval)
+          return prevIndex
+        }
+      })
     }, 1000)
+  }
 
-    return () => clearInterval(interval)
-  }, [currentLocationIndex4, routes4Start])
-
-  useEffect(() => {
+  function updateLocation5(routes: Route[]) {
+    // console.log(routes.length)
     const interval = setInterval(() => {
-      if (currentLocationIndex5 < routes5.length - 1) {
-        setCurrentLocationIndex5(currentLocationIndex5 + 1)
-        console.log(currentLocationIndex5)
-      } else if (currentLocationIndex5 === routes5.length - 1) {
-        setRoutes5Start(false)
-      }
+      setCurrentLocationIndex((prevIndex) => {
+        if (prevIndex < routes.length - 1) {
+          console.log(prevIndex)
+          return prevIndex + 1
+        } else {
+          setRoutes5Start(false)
+          clearInterval(interval)
+          return prevIndex
+        }
+      })
     }, 1000)
-
-    return () => clearInterval(interval)
-  }, [currentLocationIndex5, routes5Start])
+  }
 
   const startRoute1 = () => {
-    setCurrentLocationIndex1(0)
+    setCurrentLocationIndex(0)
     setStart([-46.28054, -23.963214])
     setEnd([-46.278736, -23.913536])
     setRoutes1Start(true)
+    updateLocation1(routes1)
   }
+
   const startRoute2 = () => {
-    setCurrentLocationIndex2(0)
+    setCurrentLocationIndex(0)
     setStart([-46.278702, -23.913509])
     setEnd([-46.280632, -23.963248])
     setRoutes2Start(true)
+    updateLocation2(routes2)
   }
+
   const startRoute3 = () => {
-    setCurrentLocationIndex3(0)
+    setCurrentLocationIndex(0)
     setStart([-46.280566, -23.963217])
     setEnd([-46.282903, -23.964515])
     setRoutes3Start(true)
+    updateLocation3(routes3)
   }
+
   const startRoute4 = () => {
-    setCurrentLocationIndex4(0)
+    setCurrentLocationIndex(0)
     setStart([-46.282916, -23.964503])
     setEnd([-46.265922, -23.973034])
     setRoutes4Start(true)
+    updateLocation4(routes4)
   }
+
   const startRoute5 = () => {
-    setCurrentLocationIndex5(0)
+    setCurrentLocationIndex(0)
     setStart([-46.265751, -23.973013])
     setEnd([-46.27787, -23.963164])
     setRoutes5Start(true)
+    updateLocation5(routes5)
   }
 
   const showBestRoute = () => {
@@ -175,9 +191,9 @@ function App() {
         {routes1Start === true ? (
           <>
             <CarMarker
-              longitude={routes1[currentLocationIndex1].longitude}
-              latitude={routes1[currentLocationIndex1].latitude}
-              direction={routes1[currentLocationIndex1].direction}
+              longitude={routes1[currentLocationIndex].longitude}
+              latitude={routes1[currentLocationIndex].latitude}
+              direction={routes1[currentLocationIndex].direction}
             />
             {bestRoute === true && <BestRoute start={start} end={end} />}
           </>
@@ -188,9 +204,9 @@ function App() {
         {routes2Start === true ? (
           <>
             <CarMarker
-              longitude={routes2[currentLocationIndex2].longitude}
-              latitude={routes2[currentLocationIndex2].latitude}
-              direction={routes2[currentLocationIndex2].direction}
+              longitude={routes2[currentLocationIndex].longitude}
+              latitude={routes2[currentLocationIndex].latitude}
+              direction={routes2[currentLocationIndex].direction}
             />
             {bestRoute === true && <BestRoute start={start} end={end} />}
           </>
@@ -201,9 +217,9 @@ function App() {
         {routes3Start === true ? (
           <>
             <CarMarker
-              longitude={routes3[currentLocationIndex3].longitude}
-              latitude={routes3[currentLocationIndex3].latitude}
-              direction={routes3[currentLocationIndex3].direction}
+              longitude={routes3[currentLocationIndex].longitude}
+              latitude={routes3[currentLocationIndex].latitude}
+              direction={routes3[currentLocationIndex].direction}
             />
             {bestRoute === true && <BestRoute start={start} end={end} />}
           </>
@@ -214,9 +230,9 @@ function App() {
         {routes4Start === true ? (
           <>
             <CarMarker
-              longitude={routes4[currentLocationIndex4].longitude}
-              latitude={routes4[currentLocationIndex4].latitude}
-              direction={routes4[currentLocationIndex4].direction}
+              longitude={routes4[currentLocationIndex].longitude}
+              latitude={routes4[currentLocationIndex].latitude}
+              direction={routes4[currentLocationIndex].direction}
             />
             {bestRoute === true && <BestRoute start={start} end={end} />}
           </>
@@ -227,9 +243,9 @@ function App() {
         {routes5Start === true ? (
           <>
             <CarMarker
-              longitude={routes5[currentLocationIndex5].longitude}
-              latitude={routes5[currentLocationIndex5].latitude}
-              direction={routes5[currentLocationIndex5].direction}
+              longitude={routes5[currentLocationIndex].longitude}
+              latitude={routes5[currentLocationIndex].latitude}
+              direction={routes5[currentLocationIndex].direction}
             />
             {bestRoute === true && <BestRoute start={start} end={end} />}
           </>
