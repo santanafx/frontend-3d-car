@@ -4,11 +4,17 @@ import { Marker } from 'react-map-gl'
 
 import cars from '../../assets/images/cars.png'
 
+type ViewState = {
+  longitude: number
+  latitude: number
+  zoom: number
+}
+
 type Props = {
   longitude: number
   latitude: number
   direction: number
-  setViewStateProp: (viewState: any) => void
+  setViewStateProp: (viewState: ViewState) => void
 }
 
 export default function CarMarker({

@@ -65,6 +65,11 @@ function App() {
           setRoutes3Start(false)
           setRoutes4Start(false)
           setRoutes5Start(false)
+          setViewState({
+            longitude: -46.28054,
+            latitude: -23.963214,
+            zoom: 12
+          })
           clearTimeout(timeoutId)
           return prevIndex
         }
