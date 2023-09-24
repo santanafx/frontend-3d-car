@@ -182,6 +182,7 @@ function App() {
               longitude={routes1[currentLocationIndex].longitude}
               latitude={routes1[currentLocationIndex].latitude}
               direction={routes1[currentLocationIndex].direction}
+              setViewStateProp={setViewState}
             />
             {bestRoute === true && <BestRoute start={start} end={end} />}
           </>
@@ -195,6 +196,7 @@ function App() {
               longitude={routes2[currentLocationIndex].longitude}
               latitude={routes2[currentLocationIndex].latitude}
               direction={routes2[currentLocationIndex].direction}
+              setViewStateProp={setViewState}
             />
             {bestRoute === true && <BestRoute start={start} end={end} />}
           </>
@@ -208,6 +210,7 @@ function App() {
               longitude={routes3[currentLocationIndex].longitude}
               latitude={routes3[currentLocationIndex].latitude}
               direction={routes3[currentLocationIndex].direction}
+              setViewStateProp={setViewState}
             />
             {bestRoute === true && <BestRoute start={start} end={end} />}
           </>
@@ -221,6 +224,7 @@ function App() {
               longitude={routes4[currentLocationIndex].longitude}
               latitude={routes4[currentLocationIndex].latitude}
               direction={routes4[currentLocationIndex].direction}
+              setViewStateProp={setViewState}
             />
             {bestRoute === true && <BestRoute start={start} end={end} />}
           </>
@@ -234,6 +238,7 @@ function App() {
               longitude={routes5[currentLocationIndex].longitude}
               latitude={routes5[currentLocationIndex].latitude}
               direction={routes5[currentLocationIndex].direction}
+              setViewStateProp={setViewState}
             />
             {bestRoute === true && <BestRoute start={start} end={end} />}
           </>
