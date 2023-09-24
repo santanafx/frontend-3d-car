@@ -50,35 +50,20 @@ function App() {
     setRoutes5(data.courses[4].gps)
   }
 
-  // function updateLocation1(routes: Route[]) {
-  //   // console.log(routes.length)
-  //   const interval = setInterval(() => {
-  //     setCurrentLocationIndex((prevIndex) => {
-  //       if (prevIndex < routes.length - 1) {
-  //         console.log(prevIndex)
-
-  //         return prevIndex + 1
-  //       } else {
-  //         setRoutes1Start(false)
-  //         clearInterval(interval)
-  //         return prevIndex
-  //       }
-  //     })
-  //   }, routes[currentLocationIndex].speed !== 0
-  //   ? 1000 / routes[currentLocationIndex].speed
-  //   : 1)
-  // }
-
   useEffect(() => {
     let timeoutId: number
 
-    const updateLocation = () => {
+    const updateLocation = (routes: Route[]) => {
       setCurrentLocationIndex((prevIndex) => {
-        if (prevIndex < routes1.length - 1) {
+        if (prevIndex < routes.length - 1) {
           console.log(prevIndex)
           return prevIndex + 1
         } else {
           setRoutes1Start(false)
+          setRoutes2Start(false)
+          setRoutes3Start(false)
+          setRoutes4Start(false)
+          setRoutes5Start(false)
           clearTimeout(timeoutId)
           return prevIndex
         }
@@ -87,127 +72,39 @@ function App() {
 
     if (routes1Start) {
       timeoutId = setTimeout(
-        updateLocation,
+        () => updateLocation(routes1),
         routes1[currentLocationIndex].speed !== 0
           ? 10000 / routes1[currentLocationIndex].speed
           : 1000
       )
     }
-
-    return () => {
-      clearTimeout(timeoutId)
-    }
-  }, [currentLocationIndex, routes1Start])
-
-  useEffect(() => {
-    let timeoutId: number
-
-    const updateLocation = () => {
-      setCurrentLocationIndex((prevIndex) => {
-        if (prevIndex < routes2.length - 1) {
-          console.log(prevIndex)
-          return prevIndex + 1
-        } else {
-          setRoutes2Start(false)
-          clearTimeout(timeoutId)
-          return prevIndex
-        }
-      })
-    }
-
     if (routes2Start) {
       timeoutId = setTimeout(
-        updateLocation,
+        () => updateLocation(routes2),
         routes2[currentLocationIndex].speed !== 0
           ? 10000 / routes2[currentLocationIndex].speed
           : 1000
       )
     }
-
-    return () => {
-      clearTimeout(timeoutId)
-    }
-  }, [currentLocationIndex, routes2Start])
-
-  useEffect(() => {
-    let timeoutId: number
-
-    const updateLocation = () => {
-      setCurrentLocationIndex((prevIndex) => {
-        if (prevIndex < routes3.length - 1) {
-          console.log(prevIndex)
-          return prevIndex + 1
-        } else {
-          setRoutes3Start(false)
-          clearTimeout(timeoutId)
-          return prevIndex
-        }
-      })
-    }
-
     if (routes3Start) {
       timeoutId = setTimeout(
-        updateLocation,
+        () => updateLocation(routes3),
         routes3[currentLocationIndex].speed !== 0
           ? 10000 / routes3[currentLocationIndex].speed
           : 1000
       )
     }
-
-    return () => {
-      clearTimeout(timeoutId)
-    }
-  }, [currentLocationIndex, routes3Start])
-
-  useEffect(() => {
-    let timeoutId: number
-
-    const updateLocation = () => {
-      setCurrentLocationIndex((prevIndex) => {
-        if (prevIndex < routes4.length - 1) {
-          console.log(prevIndex)
-          return prevIndex + 1
-        } else {
-          setRoutes4Start(false)
-          clearTimeout(timeoutId)
-          return prevIndex
-        }
-      })
-    }
-
     if (routes4Start) {
       timeoutId = setTimeout(
-        updateLocation,
+        () => updateLocation(routes4),
         routes4[currentLocationIndex].speed !== 0
           ? 10000 / routes4[currentLocationIndex].speed
           : 1000
       )
     }
-
-    return () => {
-      clearTimeout(timeoutId)
-    }
-  }, [currentLocationIndex, routes4Start])
-
-  useEffect(() => {
-    let timeoutId: number
-
-    const updateLocation = () => {
-      setCurrentLocationIndex((prevIndex) => {
-        if (prevIndex < routes5.length - 1) {
-          console.log(prevIndex)
-          return prevIndex + 1
-        } else {
-          setRoutes5Start(false)
-          clearTimeout(timeoutId)
-          return prevIndex
-        }
-      })
-    }
-
     if (routes5Start) {
       timeoutId = setTimeout(
-        updateLocation,
+        () => updateLocation(routes5),
         routes5[currentLocationIndex].speed !== 0
           ? 10000 / routes5[currentLocationIndex].speed
           : 1000
@@ -217,78 +114,20 @@ function App() {
     return () => {
       clearTimeout(timeoutId)
     }
-  }, [currentLocationIndex, routes5Start])
-
-  // function updateLocation2(routes: Route[]) {
-  //   // console.log(routes.length)
-  //   const interval = setInterval(() => {
-  //     setCurrentLocationIndex((prevIndex) => {
-  //       if (prevIndex < routes.length - 1) {
-  //         console.log(prevIndex)
-  //         return prevIndex + 1
-  //       } else {
-  //         setRoutes2Start(false)
-  //         clearInterval(interval)
-  //         return prevIndex
-  //       }
-  //     })
-  //   }, 1000 / routes2[currentLocationIndex].speed)
-  // }
-
-  // function updateLocation3(routes: Route[]) {
-  //   // console.log(routes.length)
-  //   const interval = setInterval(() => {
-  //     setCurrentLocationIndex((prevIndex) => {
-  //       if (prevIndex < routes.length - 1) {
-  //         console.log(prevIndex)
-  //         return prevIndex + 1
-  //       } else {
-  //         setRoutes3Start(false)
-  //         clearInterval(interval)
-  //         return prevIndex
-  //       }
-  //     })
-  //   }, 1000 / routes3[currentLocationIndex].speed)
-  // }
-
-  // function updateLocation4(routes: Route[]) {
-  //   // console.log(routes.length)
-  //   const interval = setInterval(() => {
-  //     setCurrentLocationIndex((prevIndex) => {
-  //       if (prevIndex < routes.length - 1) {
-  //         console.log(prevIndex)
-  //         return prevIndex + 1
-  //       } else {
-  //         setRoutes4Start(false)
-  //         clearInterval(interval)
-  //         return prevIndex
-  //       }
-  //     })
-  //   }, 1000 / routes4[currentLocationIndex].speed)
-  // }
-
-  // function updateLocation5(routes: Route[]) {
-  //   // console.log(routes.length)
-  //   const interval = setInterval(() => {
-  //     setCurrentLocationIndex((prevIndex) => {
-  //       if (prevIndex < routes.length - 1) {
-  //         console.log(prevIndex)
-  //         return prevIndex + 1
-  //       } else {
-  //         setRoutes5Start(false)
-  //         clearInterval(interval)
-  //         return prevIndex
-  //       }
-  //     })
-  //   }, 1000 / routes5[currentLocationIndex].speed)
-  // }
+  }, [
+    currentLocationIndex,
+    routes1Start,
+    routes2Start,
+    routes3Start,
+    routes4Start,
+    routes5Start
+  ])
 
   const startRoute1 = () => {
     setCurrentLocationIndex(0)
     setStart([-46.28054, -23.963214])
     setEnd([-46.278736, -23.913536])
     setRoutes1Start(true)
-    // updateLocation1(routes1)
   }
 
   const startRoute2 = () => {
@@ -296,7 +135,6 @@ function App() {
     setStart([-46.278702, -23.913509])
     setEnd([-46.280632, -23.963248])
     setRoutes2Start(true)
-    // updateLocation2(routes2)
   }
 
   const startRoute3 = () => {
@@ -304,7 +142,6 @@ function App() {
     setStart([-46.280566, -23.963217])
     setEnd([-46.282903, -23.964515])
     setRoutes3Start(true)
-    // updateLocation3(routes3)
   }
 
   const startRoute4 = () => {
@@ -312,7 +149,6 @@ function App() {
     setStart([-46.282916, -23.964503])
     setEnd([-46.265922, -23.973034])
     setRoutes4Start(true)
-    // updateLocation4(routes4)
   }
 
   const startRoute5 = () => {
@@ -320,7 +156,6 @@ function App() {
     setStart([-46.265751, -23.973013])
     setEnd([-46.27787, -23.963164])
     setRoutes5Start(true)
-    // updateLocation5(routes5)
   }
 
   const showBestRoute = () => {
