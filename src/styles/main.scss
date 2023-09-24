@@ -5,3 +5,31 @@
   margin: 0;
   box-sizing: border-box;
 }
+
+.map__container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 30px 0 30px 0;
+
+  &__buttonsContainer {
+    margin-top: 30px;
+
+    &__routes {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    &__bestRoutes {
+      display: flex;
+      justify-content: center;
+      margin-top: 30px;
+    }
+
+    &__button {
+      padding: 5px 10px;
+    }
+  }
+}

@@ -9,6 +9,7 @@ import { Route } from './types'
 
 import CarMarker from './components/CarMarker'
 import BestRoute from './components/BestRoute'
+import Options from './components/Options'
 
 function App() {
   const [viewState, setViewState] = useState({
@@ -163,13 +164,13 @@ function App() {
   }
 
   return (
-    <>
+    <main className="map__container">
       <Map
         {...viewState}
         onMove={(evt) => setViewState(evt.viewState)}
         mapStyle="mapbox://styles/santanafx/clmquada7053k01qxbeovgszz"
         mapboxAccessToken="pk.eyJ1Ijoic2FudGFuYWZ4IiwiYSI6ImNsbXF2aXFhdDAxaDAyaXBqMXRvb2IxNnIifQ.tqESIHRN6mDXgVvKEVeQRQ"
-        style={{ width: '90vw', height: '90vh' }}
+        style={{ width: '90vw', height: '80vh' }}
       >
         <GeolocateControl />
         <FullscreenControl />
@@ -240,17 +241,20 @@ function App() {
           ''
         )}
       </Map>
-      <div>
-        <button onClick={startRoute1}>Iniciar rota 1</button>
-        <button onClick={startRoute2}>Iniciar rota 2</button>
-        <button onClick={startRoute3}>Iniciar rota 3</button>
-        <button onClick={startRoute4}>Iniciar rota 4</button>
-        <button onClick={startRoute5}>Iniciar rota 5</button>
-      </div>
-      <div>
-        <button onClick={showBestRoute}>Esconder/Exibir melhor rota</button>
-      </div>
-    </>
+      <Options
+        routes1Start={routes1Start}
+        routes2Start={routes2Start}
+        routes3Start={routes3Start}
+        routes4Start={routes4Start}
+        routes5Start={routes5Start}
+        startRoute1={startRoute1}
+        startRoute2={startRoute2}
+        startRoute3={startRoute3}
+        startRoute4={startRoute4}
+        startRoute5={startRoute5}
+        showBestRoute={showBestRoute}
+      />
+    </main>
   )
 }
 

@@ -8,13 +8,12 @@ type Props = {
   direction: number
 }
 
-const calculateRotationStyle = (angle: number) => {
-  return {
-    transform: `rotate(${angle}deg)`
-  }
-}
-
 export default function CarMarker({ longitude, latitude, direction }: Props) {
+  const calculateRotationStyle = (angle: number) => {
+    return {
+      transform: `rotate(${angle}deg)`
+    }
+  }
   return (
     <Marker longitude={longitude} latitude={latitude}>
       <div className="car__marker" style={calculateRotationStyle(direction)}>

@@ -14,4 +14,28 @@
   box-sizing: border-box;
 }
 
+.map__container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 30px 0 30px 0;
+}
+.map__container__buttonsContainer {
+  margin-top: 30px;
+}
+.map__container__buttonsContainer__routes {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.map__container__buttonsContainer__bestRoutes {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+.map__container__buttonsContainer__button {
+  padding: 5px 10px;
+}
+
 /*# sourceMappingURL=main.css.map */
