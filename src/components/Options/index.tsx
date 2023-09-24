@@ -16,6 +16,7 @@ type Props = {
   setRoutes4Start: (routes4Start: boolean) => void
   setRoutes5Start: (routes5Start: boolean) => void
   setVehicleMoving: (vehicleMoving: boolean) => void
+  setVehicleStoppedMoving: (vehicleStoppedMoving: boolean) => void
 }
 
 export default function Options({
@@ -35,10 +36,12 @@ export default function Options({
   setRoutes2Start,
   setRoutes3Start,
   setRoutes4Start,
-  setRoutes5Start
+  setRoutes5Start,
+  setVehicleStoppedMoving
 }: Props) {
   const resetRoute = () => {
     setVehicleMoving(false)
+    setVehicleStoppedMoving(false)
     setRoutes1Start(false)
     setRoutes2Start(false)
     setRoutes3Start(false)
@@ -50,7 +53,9 @@ export default function Options({
     <section className="options__container">
       {vehicleMoving === true ? (
         <div className="options__container__text">
-          {!vehicleStoppedMoving && <p>O veículo está em movimento...</p>}
+          {vehicleStoppedMoving === false && (
+            <p>O veículo está em movimento...</p>
+          )}
           {vehicleStoppedMoving && (
             <p>
               O veículo chegou ao destino final. Clique em "resetar rota" para

@@ -32,7 +32,7 @@ export default function CarMarker({
       setViewStateProp({
         longitude: longitude,
         latitude: latitude,
-        zoom: 14
+        zoom: 16
       })
     }
   }, [longitude, latitude])

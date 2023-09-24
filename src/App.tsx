@@ -326,6 +326,7 @@ function App() {
         setRoutes3Start={setRoutes3Start}
         setRoutes4Start={setRoutes4Start}
         setRoutes5Start={setRoutes5Start}
+        setVehicleStoppedMoving={setVehicleStoppedMoving}
       />
     </main>
   )
