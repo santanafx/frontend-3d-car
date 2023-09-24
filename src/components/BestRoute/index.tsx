@@ -11,7 +11,7 @@ export default function BestRoute({ start, end }: Props) {
 
   useEffect(() => {
     getRoute()
-  }, [start, end])
+  }, [])
 
   const getRoute = async () => {
     const response = await fetch(
@@ -71,8 +71,8 @@ export default function BestRoute({ start, end }: Props) {
     },
     paint: {
       'line-color': 'black',
-      'line-width': 5,
-      'line-opacity': 0.75
+      'line-width': 7,
+      'line-opacity': 0.8
     }
   }
 

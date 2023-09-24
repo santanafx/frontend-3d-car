@@ -10,6 +10,7 @@ import { Route } from './types'
 import CarMarker from './components/CarMarker'
 import BestRoute from './components/BestRoute'
 import Options from './components/Options'
+import VehicleRoute from './components/VehicleRoute'
 
 function App() {
   const [viewState, setViewState] = useState({
@@ -38,6 +39,10 @@ function App() {
 
   const [follow, setFollow] = useState<boolean>(false)
 
+  const [vehicleMoving, setVehicleMoving] = useState<boolean>(false)
+  const [vehicleStoppedMoving, setVehicleStoppedMoving] =
+    useState<boolean>(false)
+
   useEffect(() => {
     getSimulatedRoute()
   }, [])
@@ -62,11 +67,7 @@ function App() {
           console.log(prevIndex)
           return prevIndex + 1
         } else {
-          setRoutes1Start(false)
-          setRoutes2Start(false)
-          setRoutes3Start(false)
-          setRoutes4Start(false)
-          setRoutes5Start(false)
+          setVehicleStoppedMoving(true)
           setViewState({
             longitude: -46.28054,
             latitude: -23.963214,
@@ -136,6 +137,7 @@ function App() {
     setStart([-46.28054, -23.963214])
     setEnd([-46.278736, -23.913536])
     setRoutes1Start(true)
+    setVehicleMoving(true)
   }
 
   const startRoute2 = () => {
@@ -143,6 +145,7 @@ function App() {
     setStart([-46.278702, -23.913509])
     setEnd([-46.280632, -23.963248])
     setRoutes2Start(true)
+    setVehicleMoving(true)
   }
 
   const startRoute3 = () => {
@@ -150,6 +153,7 @@ function App() {
     setStart([-46.280566, -23.963217])
     setEnd([-46.282903, -23.964515])
     setRoutes3Start(true)
+    setVehicleMoving(true)
   }
 
   const startRoute4 = () => {
@@ -157,6 +161,7 @@ function App() {
     setStart([-46.282916, -23.964503])
     setEnd([-46.265922, -23.973034])
     setRoutes4Start(true)
+    setVehicleMoving(true)
   }
 
   const startRoute5 = () => {
@@ -164,6 +169,7 @@ function App() {
     setStart([-46.265751, -23.973013])
     setEnd([-46.27787, -23.963164])
     setRoutes5Start(true)
+    setVehicleMoving(true)
   }
 
   const showBestRoute = () => {
@@ -172,13 +178,6 @@ function App() {
 
   const followVehicle = () => {
     setFollow(!follow)
-    // if (follow === false) {
-    //   setViewState({
-    //     longitude: -46.28054,
-    //     latitude: -23.963214,
-    //     zoom: 12
-    //   })
-    // }
   }
 
   return (
@@ -205,6 +204,13 @@ function App() {
               follow={follow}
             />
             {bestRoute === true && <BestRoute start={start} end={end} />}
+
+            <VehicleRoute
+              start={start}
+              end={end}
+              longitude={routes1[currentLocationIndex].longitude}
+              latitude={routes1[currentLocationIndex].latitude}
+            />
           </>
         ) : (
           ''
@@ -221,6 +227,13 @@ function App() {
               follow={follow}
             />
             {bestRoute === true && <BestRoute start={start} end={end} />}
+
+            <VehicleRoute
+              start={start}
+              end={end}
+              longitude={routes2[currentLocationIndex].longitude}
+              latitude={routes2[currentLocationIndex].latitude}
+            />
           </>
         ) : (
           ''
@@ -237,6 +250,13 @@ function App() {
               follow={follow}
             />
             {bestRoute === true && <BestRoute start={start} end={end} />}
+
+            <VehicleRoute
+              start={start}
+              end={end}
+              longitude={routes3[currentLocationIndex].longitude}
+              latitude={routes3[currentLocationIndex].latitude}
+            />
           </>
         ) : (
           ''
@@ -253,6 +273,13 @@ function App() {
               follow={follow}
             />
             {bestRoute === true && <BestRoute start={start} end={end} />}
+
+            <VehicleRoute
+              start={start}
+              end={end}
+              longitude={routes4[currentLocationIndex].longitude}
+              latitude={routes4[currentLocationIndex].latitude}
+            />
           </>
         ) : (
           ''
@@ -269,17 +296,19 @@ function App() {
               follow={follow}
             />
             {bestRoute === true && <BestRoute start={start} end={end} />}
+
+            <VehicleRoute
+              start={start}
+              end={end}
+              longitude={routes5[currentLocationIndex].longitude}
+              latitude={routes5[currentLocationIndex].latitude}
+            />
           </>
         ) : (
           ''
         )}
       </Map>
       <Options
-        routes1Start={routes1Start}
-        routes2Start={routes2Start}
-        routes3Start={routes3Start}
-        routes4Start={routes4Start}
-        routes5Start={routes5Start}
         startRoute1={startRoute1}
         startRoute2={startRoute2}
         startRoute3={startRoute3}
@@ -289,6 +318,14 @@ function App() {
         bestRoute={bestRoute}
         followVehicle={followVehicle}
         follow={follow}
+        setVehicleMoving={setVehicleMoving}
+        vehicleMoving={vehicleMoving}
+        vehicleStoppedMoving={vehicleStoppedMoving}
+        setRoutes1Start={setRoutes1Start}
+        setRoutes2Start={setRoutes2Start}
+        setRoutes3Start={setRoutes3Start}
+        setRoutes4Start={setRoutes4Start}
+        setRoutes5Start={setRoutes5Start}
       />
     </main>
   )

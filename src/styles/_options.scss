@@ -1,44 +1,43 @@
 @use 'variables';
 
 .options__container {
+  margin-top: 30px;
+
   &__text {
     display: flex;
-    justify-content: center;
-    margin-bottom: 10px;
-    font-size: 20px;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
   }
 
-  &__buttonsContainer {
+  &__routes {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
     margin-top: 30px;
+  }
 
-    &__routes {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
+  &__settings {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 30px;
+  }
 
-    &__settings {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 30px;
-    }
+  &__button {
+    padding: 10px 15px;
+    border-radius: 5px;
+    border: none;
+    font-weight: 600;
+    font-size: 13px;
+    background-color: variables.$primary-color;
+    color: variables.$secundary-color;
+    cursor: pointer;
 
-    &__button {
-      padding: 10px 15px;
-      border-radius: 5px;
-      border: none;
-      font-weight: 600;
-      font-size: 13px;
-      background-color: variables.$primary-color;
-      color: variables.$secundary-color;
-      cursor: pointer;
-
-      &:hover {
-        color: variables.$third-color;
-      }
+    &:hover {
+      color: variables.$third-color;
     }
   }
 }

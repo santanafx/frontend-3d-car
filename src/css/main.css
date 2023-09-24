@@ -16,29 +16,30 @@
   font-weight: 900;
 }
 
+.options__container {
+  margin-top: 30px;
+}
 .options__container__text {
   display: flex;
-  justify-content: center;
-  margin-bottom: 10px;
-  font-size: 20px;
-}
-.options__container__buttonsContainer {
-  margin-top: 30px;
-}
-.options__container__buttonsContainer__routes {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
   gap: 10px;
 }
-.options__container__buttonsContainer__settings {
+.options__container__routes {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   gap: 10px;
   margin-top: 30px;
 }
-.options__container__buttonsContainer__button {
+.options__container__settings {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 30px;
+}
+.options__container__button {
   padding: 10px 15px;
   border-radius: 5px;
   border: none;
@@ -48,7 +49,7 @@
   color: #fff;
   cursor: pointer;
 }
-.options__container__buttonsContainer__button:hover {
+.options__container__button:hover {
   color: #d2d2d2;
 }
 
