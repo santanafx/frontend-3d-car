@@ -36,6 +36,8 @@ function App() {
 
   const [bestRoute, setBestRoute] = useState<boolean>(false)
 
+  const [follow, setFollow] = useState<boolean>(false)
+
   useEffect(() => {
     getSimulatedRoute()
   }, [])
@@ -168,6 +170,17 @@ function App() {
     setBestRoute(!bestRoute)
   }
 
+  const followVehicle = () => {
+    setFollow(!follow)
+    // if (follow === false) {
+    //   setViewState({
+    //     longitude: -46.28054,
+    //     latitude: -23.963214,
+    //     zoom: 12
+    //   })
+    // }
+  }
+
   return (
     <main className="map__container">
       <Map
@@ -189,6 +202,7 @@ function App() {
               direction={routes1[currentLocationIndex].direction}
               speed={routes1[currentLocationIndex].speed}
               setViewStateProp={setViewState}
+              follow={follow}
             />
             {bestRoute === true && <BestRoute start={start} end={end} />}
           </>
@@ -204,6 +218,7 @@ function App() {
               direction={routes2[currentLocationIndex].direction}
               speed={routes2[currentLocationIndex].speed}
               setViewStateProp={setViewState}
+              follow={follow}
             />
             {bestRoute === true && <BestRoute start={start} end={end} />}
           </>
@@ -219,6 +234,7 @@ function App() {
               direction={routes3[currentLocationIndex].direction}
               speed={routes3[currentLocationIndex].speed}
               setViewStateProp={setViewState}
+              follow={follow}
             />
             {bestRoute === true && <BestRoute start={start} end={end} />}
           </>
@@ -234,6 +250,7 @@ function App() {
               direction={routes4[currentLocationIndex].direction}
               speed={routes4[currentLocationIndex].speed}
               setViewStateProp={setViewState}
+              follow={follow}
             />
             {bestRoute === true && <BestRoute start={start} end={end} />}
           </>
@@ -249,6 +266,7 @@ function App() {
               direction={routes5[currentLocationIndex].direction}
               speed={routes5[currentLocationIndex].speed}
               setViewStateProp={setViewState}
+              follow={follow}
             />
             {bestRoute === true && <BestRoute start={start} end={end} />}
           </>
@@ -268,6 +286,9 @@ function App() {
         startRoute4={startRoute4}
         startRoute5={startRoute5}
         showBestRoute={showBestRoute}
+        bestRoute={bestRoute}
+        followVehicle={followVehicle}
+        follow={follow}
       />
     </main>
   )

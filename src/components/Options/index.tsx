@@ -4,12 +4,15 @@ type Props = {
   routes3Start: boolean
   routes4Start: boolean
   routes5Start: boolean
+  bestRoute: boolean
+  follow: boolean
   startRoute1: () => void
   startRoute2: () => void
   startRoute3: () => void
   startRoute4: () => void
   startRoute5: () => void
   showBestRoute: () => void
+  followVehicle: () => void
 }
 
 export default function Options({
@@ -18,12 +21,15 @@ export default function Options({
   routes3Start,
   routes4Start,
   routes5Start,
+  bestRoute,
+  follow,
   startRoute1,
   startRoute2,
   startRoute3,
   startRoute4,
   startRoute5,
-  showBestRoute
+  showBestRoute,
+  followVehicle
 }: Props) {
   return (
     <section className="options__container__buttonsContainer">
@@ -75,12 +81,22 @@ export default function Options({
         </div>
       )}
 
-      <div className="options__container__buttonsContainer__bestRoutes">
+      <div className="options__container__buttonsContainer__settings">
         <button
           className="options__container__buttonsContainer__button"
           onClick={showBestRoute}
         >
-          Esconder/Exibir melhor rota
+          {bestRoute ? <>Esconder melhor rota</> : <>Exibir melhor rota</>}
+        </button>
+        <button
+          className="options__container__buttonsContainer__button"
+          onClick={followVehicle}
+        >
+          {follow ? (
+            <>Desabilitar seguir veículo</>
+          ) : (
+            <>Habilitar seguir veículo</>
+          )}
         </button>
       </div>
     </section>
