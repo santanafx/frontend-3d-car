@@ -1,13 +1,27 @@
-.car__marker {
+.carMarker {
   position: relative;
   width: 150px;
   height: 150px;
   overflow: hidden;
 }
-.car__marker__img {
+.carMarker__img {
   transform-origin: center center;
 }
 
+.carMarker__status {
+  position: fixed;
+  bottom: 10%;
+  left: 10%;
+  font-size: 15px;
+  font-weight: 900;
+}
+
+.options__container__text {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+  font-size: 20px;
+}
 .options__container__buttonsContainer {
   margin-top: 30px;
 }

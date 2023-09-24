@@ -1,4 +1,4 @@
-.car__marker {
+.carMarker {
   position: relative;
   width: 150px;
   height: 150px;
@@ -6,4 +6,12 @@
   &__img {
     transform-origin: center center;
   }
+}
+
+.carMarker__status {
+  position: fixed;
+  bottom: 10%;
+  left: 10%;
+  font-size: 15px;
+  font-weight: 900;
 }

@@ -14,6 +14,7 @@ type Props = {
   longitude: number
   latitude: number
   direction: number
+  speed: number
   setViewStateProp: (viewState: ViewState) => void
 }
 
@@ -21,6 +22,7 @@ export default function CarMarker({
   longitude,
   latitude,
   direction,
+  speed,
   setViewStateProp
 }: Props) {
   useEffect(() => {
@@ -38,10 +40,18 @@ export default function CarMarker({
   }
 
   return (
-    <Marker longitude={longitude} latitude={latitude}>
-      <div className="car__marker" style={calculateRotationStyle(direction)}>
-        <img className="car__marker__img" src={cars} alt="" />
+    <>
+      <Marker longitude={longitude} latitude={latitude}>
+        <div className="carMarker" style={calculateRotationStyle(direction)}>
+          <img className="carMarker__img" src={cars} alt="" />
+        </div>
+      </Marker>
+      <div className="carMarker__status">
+        <p>Longitude: {longitude}</p>
+        <p>Latitude: {latitude}</p>
+        <p>Direção: {direction}</p>
+        <p>Velocidade: {speed}</p>
       </div>
-    </Marker>
+    </>
   )
 }

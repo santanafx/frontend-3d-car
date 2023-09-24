@@ -175,7 +175,7 @@ function App() {
         onMove={(evt) => setViewState(evt.viewState)}
         mapStyle="mapbox://styles/santanafx/clmquada7053k01qxbeovgszz"
         mapboxAccessToken="pk.eyJ1Ijoic2FudGFuYWZ4IiwiYSI6ImNsbXF2aXFhdDAxaDAyaXBqMXRvb2IxNnIifQ.tqESIHRN6mDXgVvKEVeQRQ"
-        style={{ width: '90vw', height: '80vh' }}
+        style={{ width: '90vw', height: '75vh' }}
       >
         <GeolocateControl />
         <FullscreenControl />
@@ -187,6 +187,7 @@ function App() {
               longitude={routes1[currentLocationIndex].longitude}
               latitude={routes1[currentLocationIndex].latitude}
               direction={routes1[currentLocationIndex].direction}
+              speed={routes1[currentLocationIndex].speed}
               setViewStateProp={setViewState}
             />
             {bestRoute === true && <BestRoute start={start} end={end} />}
@@ -201,6 +202,7 @@ function App() {
               longitude={routes2[currentLocationIndex].longitude}
               latitude={routes2[currentLocationIndex].latitude}
               direction={routes2[currentLocationIndex].direction}
+              speed={routes2[currentLocationIndex].speed}
               setViewStateProp={setViewState}
             />
             {bestRoute === true && <BestRoute start={start} end={end} />}
@@ -215,6 +217,7 @@ function App() {
               longitude={routes3[currentLocationIndex].longitude}
               latitude={routes3[currentLocationIndex].latitude}
               direction={routes3[currentLocationIndex].direction}
+              speed={routes3[currentLocationIndex].speed}
               setViewStateProp={setViewState}
             />
             {bestRoute === true && <BestRoute start={start} end={end} />}
@@ -229,6 +232,7 @@ function App() {
               longitude={routes4[currentLocationIndex].longitude}
               latitude={routes4[currentLocationIndex].latitude}
               direction={routes4[currentLocationIndex].direction}
+              speed={routes4[currentLocationIndex].speed}
               setViewStateProp={setViewState}
             />
             {bestRoute === true && <BestRoute start={start} end={end} />}
@@ -243,6 +247,7 @@ function App() {
               longitude={routes5[currentLocationIndex].longitude}
               latitude={routes5[currentLocationIndex].latitude}
               direction={routes5[currentLocationIndex].direction}
+              speed={routes5[currentLocationIndex].speed}
               setViewStateProp={setViewState}
             />
             {bestRoute === true && <BestRoute start={start} end={end} />}
