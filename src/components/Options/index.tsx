@@ -26,8 +26,8 @@ export default function Options({
   showBestRoute
 }: Props) {
   return (
-    <div className="map__container__buttonsContainer">
-      <div className="map__container__buttonsContainer__routes">
+    <section className="options__container__buttonsContainer">
+      <div className="options__container__buttonsContainer__routes">
         {!routes1Start &&
           !routes2Start &&
           !routes3Start &&
@@ -35,31 +35,31 @@ export default function Options({
           !routes5Start && (
             <>
               <button
-                className="map__container__buttonsContainer__button"
+                className="options__container__buttonsContainer__button"
                 onClick={startRoute1}
               >
                 Iniciar rota 1
               </button>
               <button
-                className="map__container__buttonsContainer__button"
+                className="options__container__buttonsContainer__button"
                 onClick={startRoute2}
               >
                 Iniciar rota 2
               </button>
               <button
-                className="map__container__buttonsContainer__button"
+                className="options__container__buttonsContainer__button"
                 onClick={startRoute3}
               >
                 Iniciar rota 3
               </button>
               <button
-                className="map__container__buttonsContainer__button"
+                className="options__container__buttonsContainer__button"
                 onClick={startRoute4}
               >
                 Iniciar rota 4
               </button>
               <button
-                className="map__container__buttonsContainer__button"
+                className="options__container__buttonsContainer__button"
                 onClick={startRoute5}
               >
                 Iniciar rota 5
@@ -67,14 +67,14 @@ export default function Options({
             </>
           )}
       </div>
-      <div className="map__container__buttonsContainer__bestRoutes">
+      <div className="options__container__buttonsContainer__bestRoutes">
         <button
-          className="map__container__buttonsContainer__button"
+          className="options__container__buttonsContainer__button"
           onClick={showBestRoute}
         >
           Esconder/Exibir melhor rota
         </button>
       </div>
-    </div>
+    </section>
   )
 }
