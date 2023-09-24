@@ -15,6 +15,7 @@ type Props = {
   latitude: number
   direction: number
   speed: number
+  follow: boolean
   setViewStateProp: (viewState: ViewState) => void
 }
 
@@ -23,14 +24,17 @@ export default function CarMarker({
   latitude,
   direction,
   speed,
+  follow,
   setViewStateProp
 }: Props) {
   useEffect(() => {
-    setViewStateProp({
-      longitude: longitude,
-      latitude: latitude,
-      zoom: 14
-    })
+    if (follow === true) {
+      setViewStateProp({
+        longitude: longitude,
+        latitude: latitude,
+        zoom: 14
+      })
+    }
   }, [longitude, latitude])
 
   const calculateRotationStyle = (angle: number) => {
