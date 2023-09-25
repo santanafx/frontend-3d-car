@@ -1,10 +1,12 @@
 .carMarker {
   position: relative;
-  width: 150px;
-  height: 150px;
+  width: 50px;
+  height: 50px;
   overflow: hidden;
 }
 .carMarker__img {
+  height: 50px;
+  object-fit: cover;
   transform-origin: center center;
 }
 
