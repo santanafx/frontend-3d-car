@@ -1,4 +1,6 @@
 import { useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux'
+
 import {
   changeBestRoute,
   changeFollowVehicle,
@@ -10,7 +12,6 @@ import {
   secondRouteSelect,
   thirdRouteSelect
 } from '../../store/reducers/vehicleData'
-import { useSelector } from 'react-redux'
 import { RootReducer } from '../../store'
 
 type Props = {

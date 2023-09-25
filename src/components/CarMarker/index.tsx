@@ -1,5 +1,4 @@
 import { useEffect } from 'react'
-
 import { Marker } from 'react-map-gl'
 
 import cars from '../../assets/images/cars.png'

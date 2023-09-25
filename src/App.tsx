@@ -4,12 +4,12 @@ import Map, {
   GeolocateControl,
   NavigationControl
 } from 'react-map-gl'
+import { useDispatch, useSelector } from 'react-redux'
 
 import CarMarker from './components/CarMarker'
 import BestRoute from './components/BestRoute'
 import Options from './components/Options'
 import VehicleRoute from './components/VehicleRoute'
-import { useDispatch, useSelector } from 'react-redux'
 import {
   changeVehicleMoving,
   changeVehicleStoppedMoving,
