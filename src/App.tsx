@@ -101,7 +101,7 @@ function App() {
         () => updateLocation(firstRoute),
         firstRoute[currentLocationIndex].speed !== 0
           ? 10000 / firstRoute[currentLocationIndex].speed
-          : 1000
+          : 3000
       )
     }
     if (secondRouteSelected) {
@@ -109,7 +109,7 @@ function App() {
         () => updateLocation(secondRoute),
         secondRoute[currentLocationIndex].speed !== 0
           ? 10000 / secondRoute[currentLocationIndex].speed
-          : 1000
+          : 3000
       )
     }
     if (thirdRouteSelected) {
@@ -117,7 +117,7 @@ function App() {
         () => updateLocation(thirdRoute),
         thirdRoute[currentLocationIndex].speed !== 0
           ? 10000 / thirdRoute[currentLocationIndex].speed
-          : 1000
+          : 3000
       )
     }
     if (fourthRouteSelected) {
@@ -125,7 +125,7 @@ function App() {
         () => updateLocation(fourthRoute),
         fourthRoute[currentLocationIndex].speed !== 0
           ? 10000 / fourthRoute[currentLocationIndex].speed
-          : 1000
+          : 3000
       )
     }
     if (fifthRouteSelected) {
@@ -133,7 +133,7 @@ function App() {
         () => updateLocation(fifthRoute),
         fifthRoute[currentLocationIndex].speed !== 0
           ? 10000 / fifthRoute[currentLocationIndex].speed
-          : 1000
+          : 3000
       )
     }
 
