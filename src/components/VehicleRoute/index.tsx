@@ -51,10 +51,72 @@ export default function VehicleRoute({
     }
   }
 
+  const layerEndpoint = {
+    id: 'end',
+    type: 'circle',
+    source: {
+      type: 'geojson',
+      data: end
+    },
+    paint: {
+      'circle-radius': 10,
+      'circle-color': '#f30'
+    }
+  }
+
+  const layerStartpoint = {
+    id: 'start',
+    type: 'circle',
+    source: {
+      type: 'geojson',
+      data: start
+    },
+    paint: {
+      'circle-radius': 10,
+      'circle-color': '#00ff1a'
+    }
+  }
+
+  const endPoint: GeoJSON.FeatureCollection<GeoJSON.Point> = {
+    type: 'FeatureCollection',
+    features: [
+      {
+        type: 'Feature',
+        geometry: {
+          type: 'Point',
+          coordinates: [...end]
+        },
+        properties: {}
+      }
+    ]
+  }
+
+  const startPoint: GeoJSON.FeatureCollection<GeoJSON.Point> = {
+    type: 'FeatureCollection',
+    features: [
+      {
+        type: 'Feature',
+        geometry: {
+          type: 'Point',
+          coordinates: [...start]
+        },
+        properties: {}
+      }
+    ]
+  }
+
   return (
     <>
       <Source id="routeSource2" type="geojson" data={route}>
         <Layer {...routeStyle} />
+      </Source>
+
+      <Source id="endSource" type="geojson" data={endPoint}>
+        <Layer {...layerEndpoint} />
+      </Source>
+
+      <Source id="startSource" type="geojson" data={startPoint}>
+        <Layer {...layerStartpoint} />
       </Source>
     </>
   )

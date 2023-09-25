@@ -35,33 +35,6 @@ export default function BestRoute({ start, end }: Props) {
     ]
   }
 
-  const endPoint: GeoJSON.FeatureCollection<GeoJSON.Point> = {
-    type: 'FeatureCollection',
-    features: [
-      {
-        type: 'Feature',
-        geometry: {
-          type: 'Point',
-          coordinates: [...end]
-        },
-        properties: {}
-      }
-    ]
-  }
-
-  const layerEndpoint = {
-    id: 'end',
-    type: 'circle',
-    source: {
-      type: 'geojson',
-      data: end
-    },
-    paint: {
-      'circle-radius': 10,
-      'circle-color': '#f30'
-    }
-  }
-
   const lineStyle = {
     id: 'roadLayer',
     type: 'line',
@@ -80,10 +53,6 @@ export default function BestRoute({ start, end }: Props) {
     <>
       <Source id="routeSource" type="geojson" data={geojson}>
         <Layer {...lineStyle} />
-      </Source>
-
-      <Source id="endSource" type="geojson" data={endPoint}>
-        <Layer {...layerEndpoint} />
       </Source>
     </>
   )
