@@ -5,8 +5,6 @@ import Map, {
   NavigationControl
 } from 'react-map-gl'
 
-import { Route } from './types'
-
 import CarMarker from './components/CarMarker'
 import BestRoute from './components/BestRoute'
 import Options from './components/Options'
@@ -22,6 +20,16 @@ import {
   thirdRouteSelect
 } from './store/reducers/vehicleData'
 import { RootReducer } from './store'
+
+type Route = {
+  acquisition_time: string
+  acquisition_time_unix: number
+  address: string
+  direction: number
+  latitude: number
+  longitude: number
+  speed: number
+}
 
 function App() {
   const {
