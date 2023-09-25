@@ -30,7 +30,7 @@ When starting the project, a page is loaded with a map obtained through the use 
 4. NavigationControl adds buttons for zooming in, zooming out, and resetting the direction (default position north).
 
 <p align="justify">
-Four React components were created, named 'CarMarker,' 'VehicleRoute,' 'BestRoute,' and 'Options.'
+Four React components were created: 'CarMarker,' 'VehicleRoute,' 'BestRoute,' and 'Options.'
 </p>
 
 1. CarMarker renders a car based on latitude, longitude, speed, and direction, allowing the user to automatically follow the vehicle based on coordinates during the route. This component also displays information about longitude, latitude, direction, and speed in the lower left corner of the screen.
@@ -38,9 +38,9 @@ Four React components were created, named 'CarMarker,' 'VehicleRoute,' 'BestRout
 3. BestRoute renders the most efficient route from the starting point of the route to the endpoint. The user can choose to view the path (a black line) or not. In this component, a GET request is made to the Mapbox Directions API.
 4. Options renders all the menu buttons, including 'Start Route 1,' 'Start Route 2,' 'Start Route 3,' 'Start Route 4,' 'Start Route 5,' 'Show Best Route,' 'Enable Vehicle Tracking,' 'Hide Best Route,' 'Disable Vehicle Tracking,' and 'Reset Route.' In this component, it is also checked whether the car has already reached its final destination or if the user is prompted to choose a route.
 
-## Project Video
+## Video
 
-<a href="https://www.youtube.com/watch?v=N2NJWaQwgFk">Project video here</a>.
+<a href="https://www.youtube.com/watch?v=N2NJWaQwgFk">Video here</a>.
 
 #### Images
 
