@@ -108,7 +108,7 @@ Once Visual Studio is open with the desired project, open the terminal by clicki
 
 <img align="center" src='./public/images/readme/instrucao-terminal.png'>
 <img align="center" src='./public/images/readme/instrucao-npm.png'>
-<br />"
+<br />
 
 # :sunglasses: Author <a name="id07"></a>
 

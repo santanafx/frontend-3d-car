@@ -53,54 +53,52 @@ export default function Options({
     <section className="options__container">
       {vehicleMoving === true ? (
         <div className="options__container__text">
-          {vehicleStoppedMoving === false && (
-            <p>O veículo está em movimento...</p>
-          )}
+          {vehicleStoppedMoving === false && <p>The vehicle is in motion...</p>}
           {vehicleStoppedMoving && (
             <p>
-              O veículo chegou ao destino final. Clique em "resetar rota" para
-              escolher uma nova rota.
+              The vehicle has reached the final destination. Click 'Reset Route'
+              to choose a new route.
             </p>
           )}
           <button className="options__container__button" onClick={resetRoute}>
-            Resetar rota
+            Reset Route
           </button>
         </div>
       ) : (
         <>
           <div className="options__container__text">
-            <p>Escolha uma das rotas abaixo.</p>
+            <p>Choose one of the routes below.</p>
           </div>
           <div className="options__container__routes">
             <button
               className="options__container__button"
               onClick={startRoute1}
             >
-              Iniciar rota 1
+              Start Route 1
             </button>
             <button
               className="options__container__button"
               onClick={startRoute2}
             >
-              Iniciar rota 2
+              Start Route 2
             </button>
             <button
               className="options__container__button"
               onClick={startRoute3}
             >
-              Iniciar rota 3
+              Start Route 3
             </button>
             <button
               className="options__container__button"
               onClick={startRoute4}
             >
-              Iniciar rota 4
+              Start Route 4
             </button>
             <button
               className="options__container__button"
               onClick={startRoute5}
             >
-              Iniciar rota 5
+              Start Route 5
             </button>
           </div>
         </>
@@ -108,14 +106,14 @@ export default function Options({
 
       <div className="options__container__settings">
         <button className="options__container__button" onClick={showBestRoute}>
-          {bestRoute ? <>Esconder melhor rota</> : <>Exibir melhor rota</>}
+          {bestRoute ? <>Hide Best Route</> : <>Show Best Route</>}
         </button>
 
         <button className="options__container__button" onClick={followVehicle}>
           {follow ? (
-            <>Desabilitar seguir veículo</>
+            <>Disable Vehicle Tracking</>
           ) : (
-            <>Habilitar seguir veículo</>
+            <>Enable Vehicle Tracking</>
           )}
         </button>
       </div>

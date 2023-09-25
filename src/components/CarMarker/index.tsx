@@ -53,8 +53,8 @@ export default function CarMarker({
       <div className="carMarker__status">
         <p>Longitude: {longitude}</p>
         <p>Latitude: {latitude}</p>
-        <p>Direção: {direction}</p>
-        <p>Velocidade: {speed}</p>
+        <p>Direction: {direction}</p>
+        <p>Speed: {speed}</p>
       </div>
     </>
   )
