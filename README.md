@@ -1,120 +1,116 @@
-# Sobre o projeto
+# Select Language: **English**, [Portuguese](https://github.com/santanafx/frontend-3d-car/blob/main/README-pt.md)
+
+# About the project
 
 <p align="justify">
-O projeto consistiu em realizar um desafio proposto pela empresa Softruck. Softruck é uma multinacional que oferece soluções de gerenciamento com o objetivo de reduzir custos operacionais, monitoramento e medição ativa do desempenho de recursos, sejam eles humanos ou manufaturados.
+The project involved taking on a challenge proposed by the company Softruck. Softruck is a multinational corporation that provides management solutions with the aim of reducing operational costs and actively monitoring and measuring resource performance.
 </p>
 
-# O projeto
+# The project
 
 <p align="justify">
-Para o desenvolvimento do projeto foi escolhido o React que é uma biblioteca do JavaScript amplamente utilizada para construir interfaces de usuário interativas e performaticas. Foi escolhido o Vite que é uma ferramenta que se destaca em velocidade e eficiência de desenvolvimento. Foi escolhido o TypeScript que adiciona tipagem opcional para o JavaScript adicionando mais facilidade de manutenção, robustês ao código, maior legibilidade e redução de bugs.
-O projeto foi dividido em pastas separando cada elemento de acordo com sua respectiva função. A pasta "assets", armazena os arquivos de imagem do projeto. A pasta "components", segue a metodologia do Atomic design para possibilitar a criação de um sistema mais consistente e padronizado. A pasta "css", armazena o arquivo "main.css" e o arquivo "main.css.map" que tem a função de facilitar a depuração e manutenção do código. A pasta "styles", armazena os arquivos SCSS de todo o projeto.
+For the development of the project, the following technologies were chosen:
+</p>
+
+1. React, which is a widely used JavaScript library for building interactive and performant user interfaces.
+2. Vite, a tool known for its speed and efficiency in development.
+3. TypeScript, which adds optional typing to JavaScript, providing greater ease of maintenance, code robustness, improved readability, and bug reduction
+
+<p align="justify">
+The project was organized into folders, each intended for a specific element according to its function. The "assets" folder stores project image files. The "components" folder follows the Atomic Design methodology, enabling the creation of a more consistent and standardized system. The "css" folder contains the "main.css" file and the "main.css.map" file, which facilitate code debugging and maintenance. The "styles" folder stores the SCSS files for the entire project.
 </p>
 
 <p align="justify">
-Ao iniciar o projeto, é carregado uma página com um mapa que é obtido através do uso da API mapbox. O mapa foi renderizado utilizando a biblioteca "react-map-gl" que fornece componentes que possibilitam adicionar mais interação entre usuário e mapa. Foram adicionados os componentes "Map", "GeolocateControl", "FullscreenControl" e "NavigationControl".
+When starting the project, a page is loaded with a map obtained through the use of the Mapbox API. The map was rendered using the 'react-map-gl' library, which provides components that enable greater interaction between the user and the map. The components 'Map,' 'GeolocateControl,' 'FullscreenControl,' and 'NavigationControl' were added.
 </p>
 
-1. Map, possibilita renderizar o mapa na tela.
-2. GeolocateControl, possibilita o compartilhamento da localização geográfica do usuário.
-3. FullscreenControl, possibilita aumentar o mapa para preencher toda a tela.
-4. NavigationControl, adiciona botões de zomm in, zoom out e reset de direção (posição default norte).
+1. Map enables rendering the map on the screen.
+2. GeolocateControl allows sharing the user's geographic location.
+3. FullscreenControl enables expanding the map to fill the entire screen.
+4. NavigationControl adds buttons for zooming in, zooming out, and resetting the direction (default position north).
 
 <p align="justify">
-Em seguida foram criados 4 componentes do React, cujo os nomes são, "CarMarker", "VehicleRoute", "BestRoute" e "Options".
+Next, four React components were created, named 'CarMarker,' 'VehicleRoute,' 'BestRoute,' and 'Options.'
 </p>
 
-1. CarMarker, renderiza o carro de acordo com a latitude, longitude, velocidade, direção e habilita o usuário a seguir automaticamente o carro de acordo com as coordenadas durante a rota. É neste componente que também é renderizado no canto inferior esquerdo da tela informações de longitude, latitude, direção e velocidade.
-2. VehicleRoute, renderiza o trajeto ( linha de cor azul) do carro dinâmicamente de acordo com as coordenadas de latitude e longitude do arquivo "frontend_data_gps.json". É neste componente que tambem é renderizado o circulo verde (ponto de início da rota) e o circulo vermelho (ponto final da rota). Os componentes "Source" e "Layer" da biblioteca "react-map-gl" possibilitam desenhar pontos e linhas no mapa.
-3. BestRoute, renderiza a rota mais eficiênte do ponto de início da rota até o ponto final da rota. O usuário pode escolher se ele deseja visualizar o trajeto (linha de cor preta) ou não. É neste componete que é feito uma requisição do tipo GET para API mapbox directions.
-4. Options, renderiza todos os botões do menu, "Iniciar rota 1", "Iniciar rota 2", "Iniciar rota 3", "Iniciar rota 4", "Iniciar rota 5", "Exibir melhor rota", "Habilitar seguir veículo", "Esconder melhor rota", "Desabilitar seguir veículo" e "Resetar rota". É neste componente que também é renderizado se o carro ja chegou no seu destino final ou pede ao usuário para escolher uma rota.
+1. CarMarker renders a car based on latitude, longitude, speed, and direction, allowing the user to automatically follow the vehicle based on coordinates during the route. This component also displays information about longitude, latitude, direction, and speed in the lower left corner of the screen.
+2. VehicleRoute dynamically renders the vehicle's route (a blue line) based on latitude and longitude coordinates from the 'frontend_data_gps.json' file. In this component, a green circle (starting point of the route) and a red circle (ending point of the route) are also rendered. The 'Source' and 'Layer' components from the 'react-map-gl' library enable the representation of points and lines on the map.
+3. BestRoute renders the most efficient route from the starting point of the route to the endpoint. The user can choose to view the path (a black line) or not. In this component, a GET request is made to the Mapbox Directions API.
+4. Options renders all the menu buttons, including 'Start route 1,' 'Start route 2,' 'Start route 3,' 'Start route 4,' 'Start route 5,' 'Show best route,' 'Enable vehicle tracking,' 'Hide best route,' 'Disable vehicle tracking,' and 'Reset route.' In this component, it is also checked whether the car has already reached its final destination or if the user is prompted to choose a route.
 
-#### Objetivo
+#### Goal
 
 <p align="justify">
-No desafio foram fornecidas as seguintes instruções:
+The challenge provided the following instructions:
 
-Utilizando os dados geográficos fornecidos e o sprite de dados, criar uma tela com um mapa que deve realizar a animação no sprite baseado na direção do carro.
+Using the provided geographic data and data sprite, create a screen with a map that should perform animation on the sprite based on the direction of the car.
 
 </p>
 
-##### Tarefa bônus
+##### Bonus task
 
 <p align="justify">
-Utilizar a velocidade do veículo para definir quão rápido ele vai se mover no trajeto.
+Utilize the vehicle's speed to determine how fast it will move along the route.
 </p>
 <p align="justify">
-Deixar o usuário selecionar qual dos trajetos será desenhado naquele momento.
+Allow the user to select which of the routes will be drawn at that moment.
 </p>
 
-## Tecnologias e linguagens utilizadas
+## Technologies and programming languages used
 
 Typescript | React | HTML | SASS | Vite
 
-## Bibliotecas utilizadas
+## Libraries used
 
-1. mapbox-gl - biblioteca de mapeamento que permite criar mapas interativos e personalizados.
-2. react-map-gl - biblioteca que fornece componentes React para a integração de mapas interativos. Está biblioteca funciona em conjunto com a biblioteca "mapbox-gl".
-3. sass - biblioteca que permite a criação de estilos para páginas da web ou aplicativos.
+1. mapbox-gl - A mapping library that allows you to create interactive and custom maps.
+2. react-map-gl - A library that provides React components for integrating interactive maps. This library works in conjunction with the "mapbox-gl" library.
+3. sass - A library that enables the creation of styles for web pages or applications.
 
-## Como instalar
+## How to install
 
-Para preparar o ambiente, precisaremos ter algumas coisas instaladas no computador, sendo elas:
+To set up the environment, you'll need to have the following installed on your computer:
 
 Node.js
-<a href="https://nodejs.org/pt-br">Clique aqui para instalar o Node.js</a>.
+<a href="https://nodejs.org/">Click here to install Node.js</a>.
 
 <p align="justify">
-Para instalar o Node, clique no link e baixe a versão LTS (versão recomendada)
-Para verificar se foi instalado corretamente, abra o terminal e escreva node -v ou node --version
-alt text: site do Nodejs, com o botão da versão recomendada em foco por um quadrado vermelho!
+To install Node, click on the link and download the LTS version (recommended version).
+To verify if it was installed correctly, open the terminal and type 'node -v' or 'node --version'.
 </p>
-
 <img align="center" src='./public/images/readme/instrucao-node.png'>
-
 Git
-<a href="https://git-scm.com/download/windows">Clique aqui para instalar o Git</a>.
+<a href="https://git-scm.com/download">Click here to install Git</a>.
 
 <p align="justify">
-Caso não tenha um terminal de preferência, recomendo utilizar o git bash. Para instalá-lo, haverá uma opção durante a instalação do git para permitir instalar o git bash
-alt text: imagem mostrando várias caixas selecionáveis. A caixa “Git Bash Here” está em evidência por um quadrado vermelho com uma seta apontada para ele
+If you don't have a preferred terminal, I recommend using Git Bash. To install it, there will be an option during the Git installation to allow installing Git Bash.
+To check if Git was installed correctly, open the terminal and type 'git --version'.
 </p>
-
 <img align="center" src='./public/images/readme/instrucao-git.png'>
-
-Para verificar se o git foi instalado corretamente, abra o terminal e escreva git --version
 Visual Studio Code
 
-Entre no link e baixe a versão de Windows.
+Go to the link and download the Windows version.
+<a href="https://code.visualstudio.com/download">Click here to install Visual Studio</a>.
 
-<a href="https://code.visualstudio.com/download">Clique aqui para instalar o Visual Studio</a>.
-
-Clique com o botão direito em algum local do computador e selecione a opção Git Bash Here.
+Right-click on a location on your computer and select the 'Git Bash Here' option.
 
 <img align="center" src='./public/images/readme/instrucao-gitBashHere.png'>
+In the terminal, enter the following command, replacing 'paste the project link here' with the GitHub project link:
 
-Escreva no terminal o comando abaixo e no lugar de 'cole aqui' entre no projeto do GitHub e cole o link do projeto.
-
-git clone 'cole aqui o link do projeto'
+git clone 'paste the project link here'
 
 <img align="center" src='./public/images/readme/instrucao-clone.png'>
-
 <img align="center" src='./public/images/readme/instrucao-gitClone.png'>
-
-Uma pasta com o projeto desejado será adicionada a pasta em que foi escolhida.
-Clique com o botão direito em cima da pasta e selecione "Abrir com Code"
+A folder with the desired project will be added to the selected location.
+Right-click on the folder and select 'Open with Code.'
 
 <img align="center" src='./public/images/readme/instrucao-abrirCode.png'>
-
-Uma vez que o Visual studio estiver aberto com o projeto desejado, abra o terminal clicando no menu da aba superior e digite no terminal aberto o código "npm install" e logo em seguida digite "npm run dev". Uma janela do browser será aberta e o projeto será iniciado em seu computador.
+Once Visual Studio is open with the desired project, open the terminal by clicking on the menu in the top tab and type the command 'npm install,' and then type 'npm run dev.' A browser window will open, and the project will start on your computer.
 
 <img align="center" src='./public/images/readme/instrucao-terminal.png'>
-
 <img align="center" src='./public/images/readme/instrucao-npm.png'>
+<br />"
 
-<br />
-
-# :sunglasses: Autor <a name="id07"></a>
+# :sunglasses: Author <a name="id07"></a>
 
 <br />
 
