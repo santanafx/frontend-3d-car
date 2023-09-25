@@ -48,7 +48,7 @@ function App() {
   }, [])
 
   const getSimulatedRoute = async () => {
-    const response = await fetch('./frontend_data_gps.json')
+    const response = await fetch('./data/frontend_data_gps.json')
     const data = await response.json()
 
     setRoutes1(data.courses[0].gps)
