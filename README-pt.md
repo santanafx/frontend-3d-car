@@ -17,7 +17,7 @@ Para o desenvolvimento do projeto, foram escolhidas as seguintes tecnologias:
 3. TypeScript, que adiciona tipagem opcional ao JavaScript, proporcionando maior facilidade na manutenção, robustez ao código, melhor legibilidade e redução de bugs.
 
 <p align="justify">
-O projeto foi organizado em pastas, cada uma destinada a um elemento específico de acordo com sua função. A pasta "assets" armazena os arquivos de imagem do projeto. A pasta "components" segue a metodologia do Atomic Design, permitindo a criação de um sistema mais consistente e padronizado. A pasta "css" contém o arquivo "main.css" e o arquivo "main.css.map", que facilitam a depuração e manutenção do código. A pasta "styles" armazena os arquivos SCSS de todo o projeto.
+O projeto foi organizado em pastas, cada uma destinada a um elemento específico de acordo com sua função. A pasta 'assets' armazena os arquivos de imagem do projeto. A pasta 'components' segue a metodologia do Atomic Design, permitindo a criação de um sistema mais consistente e padronizado. A pasta 'css' contém o arquivo 'main.css' e o arquivo "main.css.map", que facilitam a depuração e manutenção do código. A pasta 'styles' armazena os arquivos SCSS de todo o projeto. A pasta 'store' contém os arquivos para o gerenciamento de estado de várias variáveis utilizando o reducer 'vehicleData', que se encontra dentro da pasta 'reducers'.
 </p>
 
 <p align="justify">
@@ -36,7 +36,7 @@ Em seguida, foram criados quatro componentes do React, cujos nomes são: 'CarMar
 1. CarMarker renderiza um carro de acordo com a latitude, longitude, velocidade e direção, permitindo que o usuário siga automaticamente o veículo com base nas coordenadas durante a rota. Neste componente, também são exibidas informações de longitude, latitude, direção e velocidade no canto inferior esquerdo da tela.
 2. VehicleRoute renderiza dinamicamente a rota do veículo (linha de cor azul) com base nas coordenadas de latitude e longitude do arquivo 'frontend_data_gps.json'. Neste componente, também são renderizados um círculo verde (ponto de início da rota) e um círculo vermelho (ponto final da rota). Os componentes 'Source' e 'Layer' da biblioteca 'react-map-gl' possibilitam a representação de pontos e linhas no mapa.
 3. BestRoute renderiza a rota mais eficiente do ponto de início da rota até o ponto final da rota. O usuário pode optar por visualizar o trajeto (linha de cor preta) ou não. Neste componente, é realizada uma requisição do tipo GET para a API Mapbox Directions.
-4. Options renderiza todos os botões do menu, incluindo 'Iniciar rota 1', 'Iniciar rota 2', 'Iniciar rota 3', 'Iniciar rota 4', 'Iniciar rota 5', 'Exibir melhor rota', 'Habilitar seguir veículo', 'Esconder melhor rota', 'Desabilitar seguir veículo' e 'Resetar rota'. Neste componente, também é verificado se o carro já chegou ao seu destino final ou se solicita ao usuário que escolha uma rota.
+4. Options renderiza todos os botões do menu, incluindo 'Start route 1', 'Start route 2', 'Start route 3', 'Start route 4', 'Start route 5', 'Show Best Route', 'Enable Vehicle Tracking', 'Disable Vehicle Tracking', 'Hide Best Route' e 'Reset Route'. Neste componente, também é verificado se o carro já chegou ao seu destino final ou se solicita ao usuário que escolha uma rota.
 
 #### Imagens
 
@@ -71,6 +71,10 @@ Typescript | React | HTML | SASS | Vite
 1. mapbox-gl - biblioteca de mapeamento que permite criar mapas interativos e personalizados.
 2. react-map-gl - biblioteca que fornece componentes React para a integração de mapas interativos. Está biblioteca funciona em conjunto com a biblioteca "mapbox-gl".
 3. sass - biblioteca que permite a criação de estilos para páginas da web ou aplicativos.
+4. react-redux - biblioteca que permite o gerenciamento de estado entre o Redux e React.
+5. @reduxjs/toolkit - biblioteca que simplifica e otimiza todo o processo de gerenciamento de estado que utilizam o Redux.
+6. @types/mapbox-gl - pacote de definições de tipos TypeScript para a biblioteca mapbox-gl.
+7. @types/react-redux - pacote de definições de tipos TypeScript para a biblioteca react-redux.
 
 ## Como instalar
 

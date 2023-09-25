@@ -17,7 +17,7 @@ For the development of the project, the following technologies were chosen:
 3. TypeScript, which adds optional typing to JavaScript, providing greater ease of maintenance, code robustness, improved readability, and bug reduction
 
 <p align="justify">
-The project was organized into folders, each intended for a specific element according to its function. The "assets" folder stores project image files. The "components" folder follows the Atomic Design methodology, enabling the creation of a more consistent and standardized system. The "css" folder contains the "main.css" file and the "main.css.map" file, which facilitate code debugging and maintenance. The "styles" folder stores the SCSS files for the entire project.
+The project was organized into folders, each intended for a specific element according to its function. The "assets" folder stores project image files. The 'components' folder follows the Atomic Design methodology, enabling the creation of a more consistent and standardized system. The 'css' folder contains the 'main.css' file and the 'main.css.map' file, which facilitate code debugging and maintenance. The 'styles' folder stores the SCSS files for the entire project. The 'store' folder contains the files for managing the state of multiple variables using the 'vehicleData' reducer, which is located inside the 'reducers' folder.
 </p>
 
 <p align="justify">
@@ -36,7 +36,7 @@ Next, four React components were created, named 'CarMarker,' 'VehicleRoute,' 'Be
 1. CarMarker renders a car based on latitude, longitude, speed, and direction, allowing the user to automatically follow the vehicle based on coordinates during the route. This component also displays information about longitude, latitude, direction, and speed in the lower left corner of the screen.
 2. VehicleRoute dynamically renders the vehicle's route (a blue line) based on latitude and longitude coordinates from the 'frontend_data_gps.json' file. In this component, a green circle (starting point of the route) and a red circle (ending point of the route) are also rendered. The 'Source' and 'Layer' components from the 'react-map-gl' library enable the representation of points and lines on the map.
 3. BestRoute renders the most efficient route from the starting point of the route to the endpoint. The user can choose to view the path (a black line) or not. In this component, a GET request is made to the Mapbox Directions API.
-4. Options renders all the menu buttons, including 'Start route 1,' 'Start route 2,' 'Start route 3,' 'Start route 4,' 'Start route 5,' 'Show best route,' 'Enable vehicle tracking,' 'Hide best route,' 'Disable vehicle tracking,' and 'Reset route.' In this component, it is also checked whether the car has already reached its final destination or if the user is prompted to choose a route.
+4. Options renders all the menu buttons, including 'Start Route 1,' 'Start Route 2,' 'Start Route 3,' 'Start Route 4,' 'Start Route 5,' 'Show Best Route,' 'Enable Vehicle Tracking,' 'Hide Best Route,' 'Disable Vehicle Tracking,' and 'Reset Route.' In this component, it is also checked whether the car has already reached its final destination or if the user is prompted to choose a route.
 
 #### Images
 
@@ -71,6 +71,10 @@ Typescript | React | HTML | SASS | Vite
 1. mapbox-gl - A mapping library that allows you to create interactive and custom maps.
 2. react-map-gl - A library that provides React components for integrating interactive maps. This library works in conjunction with the "mapbox-gl" library.
 3. sass - A library that enables the creation of styles for web pages or applications.
+4. react-redux - a library that allows state management between Redux and React.
+5. @reduxjs/toolkit - a library that simplifies and optimizes the entire state management process using Redux.
+6. @types/mapbox-gl - a package of TypeScript type definitions for the mapbox-gl library.
+7. @types/react-redux - a package of TypeScript type definitions for the react-redux library.
 
 ## How to install
 
