@@ -6,6 +6,10 @@ type vehicleDataState = {
   thirdRouteSelected: boolean
   fourthRouteSelected: boolean
   fifthRouteSelected: boolean
+  showBestRoute: boolean
+  follow: boolean
+  vehicleMoving: boolean
+  vehicleStoppedMoving: boolean
 }
 
 const initialState: vehicleDataState = {
@@ -13,7 +17,11 @@ const initialState: vehicleDataState = {
   secondRouteSelected: false,
   thirdRouteSelected: false,
   fourthRouteSelected: false,
-  fifthRouteSelected: false
+  fifthRouteSelected: false,
+  showBestRoute: false,
+  follow: false,
+  vehicleMoving: false,
+  vehicleStoppedMoving: false
 }
 
 const vehicleDataSlice = createSlice({
@@ -34,6 +42,18 @@ const vehicleDataSlice = createSlice({
     },
     fifthRouteSelect: (state, action: PayloadAction<boolean>) => {
       state.fifthRouteSelected = action.payload
+    },
+    changeBestRoute: (state, action: PayloadAction<boolean>) => {
+      state.showBestRoute = !action.payload
+    },
+    changeFollowVehicle: (state, action: PayloadAction<boolean>) => {
+      state.follow = !action.payload
+    },
+    changeVehicleMoving: (state, action: PayloadAction<boolean>) => {
+      state.vehicleMoving = action.payload
+    },
+    changeVehicleStoppedMoving: (state, action: PayloadAction<boolean>) => {
+      state.vehicleStoppedMoving = action.payload
     }
   }
 })
@@ -43,6 +63,10 @@ export const {
   secondRouteSelect,
   thirdRouteSelect,
   fourthRouteSelect,
-  fifthRouteSelect
+  fifthRouteSelect,
+  changeBestRoute,
+  changeFollowVehicle,
+  changeVehicleMoving,
+  changeVehicleStoppedMoving
 } = vehicleDataSlice.actions
 export default vehicleDataSlice.reducer

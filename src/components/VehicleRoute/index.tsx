@@ -110,11 +110,9 @@ export default function VehicleRoute({
       <Source id="routeSource2" type="geojson" data={route}>
         <Layer {...routeStyle} />
       </Source>
-
       <Source id="endSource" type="geojson" data={endPoint}>
         <Layer {...layerEndpoint} />
       </Source>
-
       <Source id="startSource" type="geojson" data={startPoint}>
         <Layer {...layerStartpoint} />
       </Source>

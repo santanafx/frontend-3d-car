@@ -1,53 +1,54 @@
 import { useDispatch } from 'react-redux'
 import {
+  changeBestRoute,
+  changeFollowVehicle,
+  changeVehicleMoving,
+  changeVehicleStoppedMoving,
   fifthRouteSelect,
   firstRouteSelect,
   fourthRouteSelect,
   secondRouteSelect,
   thirdRouteSelect
 } from '../../store/reducers/vehicleData'
+import { useSelector } from 'react-redux'
+import { RootReducer } from '../../store'
 
 type Props = {
-  bestRoute: boolean
-  follow: boolean
-  vehicleMoving: boolean
-  vehicleStoppedMoving: boolean
-  startRoute1: () => void
-  startRoute2: () => void
-  startRoute3: () => void
-  startRoute4: () => void
-  startRoute5: () => void
-  showBestRoute: () => void
-  followVehicle: () => void
-  setVehicleMoving: (vehicleMoving: boolean) => void
-  setVehicleStoppedMoving: (vehicleStoppedMoving: boolean) => void
+  startFirstRoute: () => void
+  startSecondRoute: () => void
+  startThirdRoute: () => void
+  startFourthRoute: () => void
+  startFifthRoute: () => void
 }
 
 export default function Options({
-  bestRoute,
-  follow,
-  vehicleMoving,
-  vehicleStoppedMoving,
-  startRoute1,
-  startRoute2,
-  startRoute3,
-  startRoute4,
-  startRoute5,
-  showBestRoute,
-  followVehicle,
-  setVehicleMoving,
-  setVehicleStoppedMoving
+  startFirstRoute,
+  startSecondRoute,
+  startThirdRoute,
+  startFourthRoute,
+  startFifthRoute
 }: Props) {
   const dispatch = useDispatch()
 
+  const { showBestRoute, follow, vehicleMoving, vehicleStoppedMoving } =
+    useSelector((state: RootReducer) => state.vehicleData)
+
   const resetRoute = () => {
-    setVehicleMoving(false)
-    setVehicleStoppedMoving(false)
+    dispatch(changeVehicleMoving(false))
+    dispatch(changeVehicleStoppedMoving(false))
     dispatch(firstRouteSelect(false))
     dispatch(secondRouteSelect(false))
     dispatch(thirdRouteSelect(false))
     dispatch(fourthRouteSelect(false))
     dispatch(fifthRouteSelect(false))
+  }
+
+  const bestRoute = () => {
+    dispatch(changeBestRoute(showBestRoute))
+  }
+
+  const followVehicle = () => {
+    dispatch(changeFollowVehicle(follow))
   }
 
   return (
@@ -73,31 +74,31 @@ export default function Options({
           <div className="options__container__routes">
             <button
               className="options__container__button"
-              onClick={startRoute1}
+              onClick={startFirstRoute}
             >
               Start Route 1
             </button>
             <button
               className="options__container__button"
-              onClick={startRoute2}
+              onClick={startSecondRoute}
             >
               Start Route 2
             </button>
             <button
               className="options__container__button"
-              onClick={startRoute3}
+              onClick={startThirdRoute}
             >
               Start Route 3
             </button>
             <button
               className="options__container__button"
-              onClick={startRoute4}
+              onClick={startFourthRoute}
             >
               Start Route 4
             </button>
             <button
               className="options__container__button"
-              onClick={startRoute5}
+              onClick={startFifthRoute}
             >
               Start Route 5
             </button>
@@ -106,8 +107,8 @@ export default function Options({
       )}
 
       <div className="options__container__settings">
-        <button className="options__container__button" onClick={showBestRoute}>
-          {bestRoute ? <>Hide Best Route</> : <>Show Best Route</>}
+        <button className="options__container__button" onClick={bestRoute}>
+          {showBestRoute ? <>Hide Best Route</> : <>Show Best Route</>}
         </button>
 
         <button className="options__container__button" onClick={followVehicle}>
