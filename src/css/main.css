@@ -16,6 +16,13 @@
   left: 10%;
   font-size: 15px;
   font-weight: 900;
+  background-color: rgba(219, 219, 219, 0.5);
+  padding: 10px;
+}
+@media (max-width: 1280px) {
+  .carMarker__status {
+    bottom: 32%;
+  }
 }
 
 .options__container {
