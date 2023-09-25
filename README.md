@@ -30,7 +30,7 @@ When starting the project, a page is loaded with a map obtained through the use 
 4. NavigationControl adds buttons for zooming in, zooming out, and resetting the direction (default position north).
 
 <p align="justify">
-Next, four React components were created, named 'CarMarker,' 'VehicleRoute,' 'BestRoute,' and 'Options.'
+Four React components were created, named 'CarMarker,' 'VehicleRoute,' 'BestRoute,' and 'Options.'
 </p>
 
 1. CarMarker renders a car based on latitude, longitude, speed, and direction, allowing the user to automatically follow the vehicle based on coordinates during the route. This component also displays information about longitude, latitude, direction, and speed in the lower left corner of the screen.
