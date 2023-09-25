@@ -11,8 +11,26 @@ import CarMarker from './components/CarMarker'
 import BestRoute from './components/BestRoute'
 import Options from './components/Options'
 import VehicleRoute from './components/VehicleRoute'
+import { useDispatch, useSelector } from 'react-redux'
+import {
+  fifthRouteSelect,
+  firstRouteSelect,
+  fourthRouteSelect,
+  secondRouteSelect,
+  thirdRouteSelect
+} from './store/reducers/vehicleData'
+import { RootReducer } from './store'
 
 function App() {
+  const {
+    firstRouteSelected,
+    secondRouteSelected,
+    thirdRouteSelected,
+    fourthRouteSelected,
+    fifthRouteSelected
+  } = useSelector((state: RootReducer) => state.vehicleData)
+  const dispatch = useDispatch()
+
   const [viewState, setViewState] = useState({
     longitude: -46.28054,
     latitude: -23.963214,
@@ -23,15 +41,10 @@ function App() {
   const [end, setEnd] = useState<number[]>([])
 
   const [routes1, setRoutes1] = useState<Route[]>([])
-  const [routes1Start, setRoutes1Start] = useState<boolean>(false)
   const [routes2, setRoutes2] = useState<Route[]>([])
-  const [routes2Start, setRoutes2Start] = useState<boolean>(false)
   const [routes3, setRoutes3] = useState<Route[]>([])
-  const [routes3Start, setRoutes3Start] = useState<boolean>(false)
   const [routes4, setRoutes4] = useState<Route[]>([])
-  const [routes4Start, setRoutes4Start] = useState<boolean>(false)
   const [routes5, setRoutes5] = useState<Route[]>([])
-  const [routes5Start, setRoutes5Start] = useState<boolean>(false)
 
   const [currentLocationIndex, setCurrentLocationIndex] = useState<number>(0)
 
@@ -48,7 +61,7 @@ function App() {
   }, [])
 
   const getSimulatedRoute = async () => {
-    const response = await fetch('./data/frontend_data_gps.json')
+    const response = await fetch('/frontend_data_gps.json')
     const data = await response.json()
 
     setRoutes1(data.courses[0].gps)
@@ -79,7 +92,7 @@ function App() {
       })
     }
 
-    if (routes1Start) {
+    if (firstRouteSelected) {
       timeoutId = setTimeout(
         () => updateLocation(routes1),
         routes1[currentLocationIndex].speed !== 0
@@ -87,7 +100,7 @@ function App() {
           : 1000
       )
     }
-    if (routes2Start) {
+    if (secondRouteSelected) {
       timeoutId = setTimeout(
         () => updateLocation(routes2),
         routes2[currentLocationIndex].speed !== 0
@@ -95,7 +108,7 @@ function App() {
           : 1000
       )
     }
-    if (routes3Start) {
+    if (thirdRouteSelected) {
       timeoutId = setTimeout(
         () => updateLocation(routes3),
         routes3[currentLocationIndex].speed !== 0
@@ -103,7 +116,7 @@ function App() {
           : 1000
       )
     }
-    if (routes4Start) {
+    if (fourthRouteSelected) {
       timeoutId = setTimeout(
         () => updateLocation(routes4),
         routes4[currentLocationIndex].speed !== 0
@@ -111,7 +124,7 @@ function App() {
           : 1000
       )
     }
-    if (routes5Start) {
+    if (fifthRouteSelected) {
       timeoutId = setTimeout(
         () => updateLocation(routes5),
         routes5[currentLocationIndex].speed !== 0
@@ -125,18 +138,18 @@ function App() {
     }
   }, [
     currentLocationIndex,
-    routes1Start,
-    routes2Start,
-    routes3Start,
-    routes4Start,
-    routes5Start
+    firstRouteSelected,
+    secondRouteSelected,
+    thirdRouteSelected,
+    fourthRouteSelected,
+    fifthRouteSelected
   ])
 
   const startRoute1 = () => {
     setCurrentLocationIndex(0)
     setStart([-46.28054, -23.963214])
     setEnd([-46.278736, -23.913536])
-    setRoutes1Start(true)
+    dispatch(firstRouteSelect(true))
     setVehicleMoving(true)
   }
 
@@ -144,7 +157,7 @@ function App() {
     setCurrentLocationIndex(0)
     setStart([-46.278702, -23.913509])
     setEnd([-46.280632, -23.963248])
-    setRoutes2Start(true)
+    dispatch(secondRouteSelect(true))
     setVehicleMoving(true)
   }
 
@@ -152,7 +165,7 @@ function App() {
     setCurrentLocationIndex(0)
     setStart([-46.280566, -23.963217])
     setEnd([-46.282903, -23.964515])
-    setRoutes3Start(true)
+    dispatch(thirdRouteSelect(true))
     setVehicleMoving(true)
   }
 
@@ -160,7 +173,7 @@ function App() {
     setCurrentLocationIndex(0)
     setStart([-46.282916, -23.964503])
     setEnd([-46.265922, -23.973034])
-    setRoutes4Start(true)
+    dispatch(fourthRouteSelect(true))
     setVehicleMoving(true)
   }
 
@@ -168,7 +181,7 @@ function App() {
     setCurrentLocationIndex(0)
     setStart([-46.265751, -23.973013])
     setEnd([-46.27787, -23.963164])
-    setRoutes5Start(true)
+    dispatch(fifthRouteSelect(true))
     setVehicleMoving(true)
   }
 
@@ -193,7 +206,7 @@ function App() {
         <FullscreenControl />
         <NavigationControl />
 
-        {routes1Start === true ? (
+        {firstRouteSelected === true ? (
           <>
             <CarMarker
               longitude={routes1[currentLocationIndex].longitude}
@@ -216,7 +229,7 @@ function App() {
           ''
         )}
 
-        {routes2Start === true ? (
+        {secondRouteSelected === true ? (
           <>
             <CarMarker
               longitude={routes2[currentLocationIndex].longitude}
@@ -239,7 +252,7 @@ function App() {
           ''
         )}
 
-        {routes3Start === true ? (
+        {thirdRouteSelected === true ? (
           <>
             <CarMarker
               longitude={routes3[currentLocationIndex].longitude}
@@ -262,7 +275,7 @@ function App() {
           ''
         )}
 
-        {routes4Start === true ? (
+        {fourthRouteSelected === true ? (
           <>
             <CarMarker
               longitude={routes4[currentLocationIndex].longitude}
@@ -285,7 +298,7 @@ function App() {
           ''
         )}
 
-        {routes5Start === true ? (
+        {fifthRouteSelected === true ? (
           <>
             <CarMarker
               longitude={routes5[currentLocationIndex].longitude}
@@ -321,11 +334,6 @@ function App() {
         setVehicleMoving={setVehicleMoving}
         vehicleMoving={vehicleMoving}
         vehicleStoppedMoving={vehicleStoppedMoving}
-        setRoutes1Start={setRoutes1Start}
-        setRoutes2Start={setRoutes2Start}
-        setRoutes3Start={setRoutes3Start}
-        setRoutes4Start={setRoutes4Start}
-        setRoutes5Start={setRoutes5Start}
         setVehicleStoppedMoving={setVehicleStoppedMoving}
       />
     </main>

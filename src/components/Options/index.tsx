@@ -1,3 +1,12 @@
+import { useDispatch } from 'react-redux'
+import {
+  fifthRouteSelect,
+  firstRouteSelect,
+  fourthRouteSelect,
+  secondRouteSelect,
+  thirdRouteSelect
+} from '../../store/reducers/vehicleData'
+
 type Props = {
   bestRoute: boolean
   follow: boolean
@@ -10,11 +19,6 @@ type Props = {
   startRoute5: () => void
   showBestRoute: () => void
   followVehicle: () => void
-  setRoutes1Start: (routes1Start: boolean) => void
-  setRoutes2Start: (routes2Start: boolean) => void
-  setRoutes3Start: (routes3Start: boolean) => void
-  setRoutes4Start: (routes4Start: boolean) => void
-  setRoutes5Start: (routes5Start: boolean) => void
   setVehicleMoving: (vehicleMoving: boolean) => void
   setVehicleStoppedMoving: (vehicleStoppedMoving: boolean) => void
 }
@@ -32,21 +36,18 @@ export default function Options({
   showBestRoute,
   followVehicle,
   setVehicleMoving,
-  setRoutes1Start,
-  setRoutes2Start,
-  setRoutes3Start,
-  setRoutes4Start,
-  setRoutes5Start,
   setVehicleStoppedMoving
 }: Props) {
+  const dispatch = useDispatch()
+
   const resetRoute = () => {
     setVehicleMoving(false)
     setVehicleStoppedMoving(false)
-    setRoutes1Start(false)
-    setRoutes2Start(false)
-    setRoutes3Start(false)
-    setRoutes4Start(false)
-    setRoutes5Start(false)
+    dispatch(firstRouteSelect(false))
+    dispatch(secondRouteSelect(false))
+    dispatch(thirdRouteSelect(false))
+    dispatch(fourthRouteSelect(false))
+    dispatch(fifthRouteSelect(false))
   }
 
   return (
