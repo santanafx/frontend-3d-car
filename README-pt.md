@@ -38,6 +38,12 @@ Em seguida, foram criados quatro componentes do React, cujos nomes são: 'CarMar
 3. BestRoute renderiza a rota mais eficiente do ponto de início da rota até o ponto final da rota. O usuário pode optar por visualizar o trajeto (linha de cor preta) ou não. Neste componente, é realizada uma requisição do tipo GET para a API Mapbox Directions.
 4. Options renderiza todos os botões do menu, incluindo 'Iniciar rota 1', 'Iniciar rota 2', 'Iniciar rota 3', 'Iniciar rota 4', 'Iniciar rota 5', 'Exibir melhor rota', 'Habilitar seguir veículo', 'Esconder melhor rota', 'Desabilitar seguir veículo' e 'Resetar rota'. Neste componente, também é verificado se o carro já chegou ao seu destino final ou se solicita ao usuário que escolha uma rota.
 
+#### Imagens
+
+<img align="center" src='./public/images/readme/img1.png'>
+
+<img align="center" src='./public/images/readme/img2.png'>
+
 #### Objetivo
 
 <p align="justify">
