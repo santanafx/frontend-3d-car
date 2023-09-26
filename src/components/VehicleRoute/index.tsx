@@ -21,7 +21,6 @@ export default function VehicleRoute({
       setCoords([start])
     } else {
       setCoords((coords) => [...coords, [longitude, latitude]])
-      console.log(coords)
     }
   }, [start, end, longitude, latitude])
 
@@ -32,51 +31,11 @@ export default function VehicleRoute({
         type: 'Feature',
         geometry: {
           type: 'LineString',
-          coordinates: [...coords]
+          coordinates: coords
         },
         properties: {}
       }
     ]
-  }
-
-  const routeStyle = {
-    id: 'routeSource2',
-    type: 'line',
-    layout: {
-      'line-join': 'round',
-      'line-cap': 'round'
-    },
-    paint: {
-      'line-color': 'blue',
-      'line-width': 5,
-      'line-opacity': 1
-    }
-  }
-
-  const layerEndpoint = {
-    id: 'end',
-    type: 'circle',
-    source: {
-      type: 'geojson',
-      data: end
-    },
-    paint: {
-      'circle-radius': 10,
-      'circle-color': '#f30'
-    }
-  }
-
-  const layerStartpoint = {
-    id: 'start',
-    type: 'circle',
-    source: {
-      type: 'geojson',
-      data: start
-    },
-    paint: {
-      'circle-radius': 10,
-      'circle-color': '#00ff1a'
-    }
   }
 
   const endPoint: GeoJSON.FeatureCollection<GeoJSON.Point> = {
@@ -86,7 +45,7 @@ export default function VehicleRoute({
         type: 'Feature',
         geometry: {
           type: 'Point',
-          coordinates: [...end]
+          coordinates: end
         },
         properties: {}
       }
@@ -100,7 +59,7 @@ export default function VehicleRoute({
         type: 'Feature',
         geometry: {
           type: 'Point',
-          coordinates: [...start]
+          coordinates: start
         },
         properties: {}
       }
@@ -110,13 +69,32 @@ export default function VehicleRoute({
   return (
     <>
       <Source id="routeSource2" type="geojson" data={route}>
-        <Layer {...routeStyle} />
+        <Layer
+          id="routeSource2"
+          type="line"
+          layout={{ 'line-join': 'round', 'line-cap': 'round' }}
+          paint={{ 'line-color': 'blue', 'line-width': 5, 'line-opacity': 1 }}
+        />
       </Source>
       <Source id="endSource" type="geojson" data={endPoint}>
-        <Layer {...layerEndpoint} />
+        <Layer
+          id="end"
+          type="circle"
+          paint={{
+            'circle-radius': 10,
+            'circle-color': '#f30'
+          }}
+        />
       </Source>
       <Source id="startSource" type="geojson" data={startPoint}>
-        <Layer {...layerStartpoint} />
+        <Layer
+          id="start"
+          type="circle"
+          paint={{
+            'circle-radius': 10,
+            'circle-color': '#00ff1a'
+          }}
+        />
       </Source>
     </>
   )

@@ -29,31 +29,26 @@ export default function BestRoute({ start, end }: Props) {
         type: 'Feature',
         geometry: {
           type: 'LineString',
-          coordinates: [...coords]
+          coordinates: coords
         },
         properties: {}
       }
     ]
   }
 
-  const lineStyle = {
-    id: 'roadLayer',
-    type: 'line',
-    layout: {
-      'line-join': 'round',
-      'line-cap': 'round'
-    },
-    paint: {
-      'line-color': 'black',
-      'line-width': 7,
-      'line-opacity': 0.8
-    }
-  }
-
   return (
     <>
       <Source id="routeSource" type="geojson" data={geojson}>
-        <Layer {...lineStyle} />
+        <Layer
+          id="roadLayer"
+          type="line"
+          layout={{ 'line-join': 'round', 'line-cap': 'round' }}
+          paint={{
+            'line-color': 'black',
+            'line-width': 7,
+            'line-opacity': 0.8
+          }}
+        />
       </Source>
     </>
   )
