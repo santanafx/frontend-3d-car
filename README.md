@@ -18,7 +18,7 @@ For the development of the project, the following technologies were chosen:
 
 ## Project structure
 
-The project was organized into folders, each intended for a specific element according to its function. The `./src/assets` folder stores project image files. The `./src/components` folder follows the Atomic Design methodology, enabling the creation of a more consistent and standardized system. The `./src/css` folder contains the `main.css` file and the `main.css.map` file, which facilitate code debugging and maintenance. The `./src/styles` folder stores the SCSS files for the entire project. The `./src/store` folder contains the files for managing the state of multiple variables using the `./src/store/reducers/vehicleData` reducer.
+The project was organized into folders, each intended for a specific element according to its function. The `./src/assets` folder stores project image files. The `./src/components` folder follows the Atomic Design methodology, enabling the creation of a more consistent and standardized system. The `./src/css` folder contains the `main.css` file and the `main.css.map` file, which facilitate code debugging and maintenance. The `./src/styles` folder stores the SCSS files for the entire project. The `./src/store` folder contains the files for managing the state of multiple variables using the `./src/store/reducers/vehicleData` reducer. The folder ``./src/lib` contains the `i18n.ts` file with the code to perform the internationalization of all the text in the application. The folder `./src/locale` contains the `en.json` and `pt.json` files with the object and its translations.
 
 When starting the project, a page is loaded with a map obtained through the use of the Mapbox API. The map was rendered using the `react-map-gl` library, which provides components that enable greater interaction between the user and the map. The components `<Map>`, `<GeolocateControl>`, `<FullscreenControl>` and `<NavigationControl>` were added.
 
@@ -32,7 +32,7 @@ Four React components were created: `<CarMarker>`, `<VehicleRoute>`, `<BestRoute
 1. `<CarMarker>` renders a car based on latitude, longitude, speed, and direction, allowing the user to automatically follow the vehicle based on coordinates during the route. This component also displays information about longitude, latitude, direction, and speed in the lower left corner of the screen.
 2. `<VehicleRoute>` dynamically renders the vehicle's route (a blue line) based on latitude and longitude coordinates from the `./public/frontend_data_gps.json` file. In this component, a green circle (starting point of the route) and a red circle (ending point of the route) are also rendered. The `<Source>` and `<Layer>` components from the `react-map-gl` library enable the representation of points and lines on the map.
 3. `<BestRoute>` renders the most efficient route from the starting point of the route to the endpoint. The user can choose to view the path (a black line) or not. In this component, a GET request is made to the Mapbox Directions API.
-4. `<Options>` renders all the menu buttons, including `Start route 1`, `Start route 2`, `Start route 3`, `Start route 4`, `Start route 5`, `Show Best Route`, `Enable Vehicle Tracking`, `Disable Vehicle Tracking`, `Hide Best Route` and `Reset Route`.' In this component, it is also checked whether the car has already reached its final destination or if the user is prompted to choose a route.
+4. `<Options>` renders all the menu buttons, including `Start route 1`, `Start route 2`, `Start route 3`, `Start route 4`, `Start route 5`, `Show Best Route`, `Enable Vehicle Tracking`, `Disable Vehicle Tracking`, `Change to EN`, `Hide Best Route` and `Reset Route`.' In this component, it is also checked whether the car has already reached its final destination or if the user is prompted to choose a route.
 
 ## How to Locate Myself in the Project?
 
@@ -73,6 +73,8 @@ Allow the user to select which of the routes will be drawn at that moment.
 6. `@types/mapbox-gl` - a package of TypeScript type definitions for the `mapbox-gl` library.
 7. `@types/react-redux` - a package of TypeScript type definitions for the `react-redux` library.
 8. `@types/react-map-gl` - a package of TypeScript type definitions for the `react-map-gl` library.
+9. `i18next` - a library that provides support for loading and managing application translations.
+10. `react-i18next` - a library that works in conjunction with the `i18next` library for React applications.
 
 ## How to install
 

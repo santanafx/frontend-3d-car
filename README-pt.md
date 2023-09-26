@@ -18,7 +18,7 @@ Para o desenvolvimento do projeto, foram escolhidas as seguintes tecnologias:
 
 ## Estrutura do projeto
 
-O projeto foi organizado em pastas, cada uma destinada a um elemento específico de acordo com sua função. A pasta `./src/assets` armazena os arquivos de imagem do projeto. A pasta `./src/components` segue a metodologia do Atomic Design, permitindo a criação de um sistema mais consistente e padronizado. A pasta `./src/css` contém o arquivo `main.css` e o arquivo `main.css.map`, que facilitam a depuração e manutenção do código. A pasta `./src/styles` armazena os arquivos SCSS de todo o projeto. A pasta `./src/store` contém os arquivos para o gerenciamento de estado de várias variáveis utilizando o reducer `./src/store/reducers/vehicleData`.
+O projeto foi organizado em pastas, cada uma destinada a um elemento específico de acordo com sua função. A pasta `./src/assets` armazena os arquivos de imagem do projeto. A pasta `./src/components` segue a metodologia do Atomic Design, permitindo a criação de um sistema mais consistente e padronizado. A pasta `./src/css` contém o arquivo `main.css` e o arquivo `main.css.map`, que facilitam a depuração e manutenção do código. A pasta `./src/styles` armazena os arquivos SCSS de todo o projeto. A pasta `./src/store` contém os arquivos para o gerenciamento de estado de várias variáveis utilizando o reducer `./src/store/reducers/vehicleData`. A pasta `./src/lib` contém o arquivo `i18n.ts` com o código para realizar a internacionalização de todo o texto do aplicativo. A pasta `./src/locale` contém os arquivos `en.json` e `pt.json` com o objeto e suas traduções.
 
 Ao iniciar o projeto, uma página é carregada com um mapa obtido através do uso da API Mapbox. O mapa foi renderizado utilizando a biblioteca `react-map-gl`, que fornece componentes que possibilitam adicionar maior interação entre o usuário e o mapa. Foram adicionados os componentes `<Map>`, `<GeolocateControl>`, `<FullscreenControl>` e `<NavigationControl>`
 
@@ -32,7 +32,7 @@ Em seguida, foram criados quatro componentes do React, cujos nomes são: `<CarMa
 1. `<CarMarker>` renderiza um carro de acordo com a latitude, longitude, velocidade e direção, permitindo que o usuário siga automaticamente o veículo com base nas coordenadas durante a rota. Neste componente, também são exibidas informações de longitude, latitude, direção e velocidade no canto inferior esquerdo da tela.
 2. `<VehicleRoute>` renderiza dinamicamente a rota do veículo (linha de cor azul) com base nas coordenadas de latitude e longitude do arquivo `./public/frontend_data_gps.json`. Neste componente, também são renderizados um círculo verde (ponto de início da rota) e um círculo vermelho (ponto final da rota). Os componentes `<Source>` e `<Layer>` da biblioteca `react-map-gl` possibilitam a representação de pontos e linhas no mapa.
 3. `<BestRoute>` renderiza a rota mais eficiente do ponto de início da rota até o ponto final da rota. O usuário pode optar por visualizar o trajeto (linha de cor preta) ou não. Neste componente, é realizada uma requisição do tipo GET para a API Mapbox Directions.
-4. `<Options>` renderiza todos os botões do menu, incluindo `Start route 1`, `Start route 2`, `Start route 3`, `Start route 4`, `Start route 5`, `Show Best Route`, `Enable Vehicle Tracking`, `Disable Vehicle Tracking`, `Hide Best Route` e `Reset Route`. Neste componente, também é verificado se o carro já chegou ao seu destino final ou se solicita ao usuário que escolha uma rota.
+4. `<Options>` renderiza todos os botões do menu, incluindo `Iniciar Rota 1`, `Iniciar Rota 2`, `Iniciar Rota 3`, `Iniciar Rota 4`, `Iniciar Rota 5`, `Exibir Melhor Rota`, `Ativar Rastreamento de Veículo`, `Desabilitar Rastreamento de Veículo`, `Trocar para PT-BR`, `Esconder Melhor Rota` e `Resetar Rota`. Neste componente, também é verificado se o carro já chegou ao seu destino final ou se solicita ao usuário que escolha uma rota.
 
 ## Como me localizar no projeto?
 
@@ -73,6 +73,8 @@ Deixar o usuário selecionar qual dos trajetos será desenhado naquele momento.
 6. `@types/mapbox-gl` - pacote de definições de tipos TypeScript para a biblioteca `mapbox-gl`.
 7. `@types/react-redux` - pacote de definições de tipos TypeScript para a biblioteca `react-redux`.
 8. `@types/react-map-gl` - pacote de definições de tipos TypeScript para a biblioteca `react-map-gl`.
+9. `i18next` - biblioteca que fornece suporte para carregar e gerenciar traduções de aplicativos.
+10. `react-i18next` - biblioteca que funciona em conjunto da biblioteca `i18next` para aplicativos do React.
 
 ## Como instalar
 
