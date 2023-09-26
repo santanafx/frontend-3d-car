@@ -16,6 +16,42 @@ Para o desenvolvimento do projeto, foram escolhidas as seguintes tecnologias:
 2. `Vite`, uma ferramenta conhecida por sua velocidade e eficiência no desenvolvimento
 3. `TypeScript`, que adiciona tipagem opcional ao JavaScript, proporcionando maior facilidade na manutenção, robustez ao código, melhor legibilidade e redução de bugs.
 
+## Video do projeto
+
+<a href="https://www.youtube.com/watch?v=QKh7RwoH_Sc">Video do projeto aqui</a>.
+
+#### Imagens
+
+<div style="display: flex; justify-content: center;">
+  <img src='./public/images/readme/img1.png' style="margin-right: 10px;">
+  <img src='./public/images/readme/img2.png'>
+</div>
+
+## Bibliotecas utilizadas
+
+1. `mapbox-gl` - biblioteca de mapeamento que permite criar mapas interativos e personalizados.
+2. `react-map-gl` - biblioteca que fornece componentes React para a integração de mapas interativos. Está biblioteca funciona em conjunto com a biblioteca `mapbox-gl`.
+3. `sass` - biblioteca que permite a criação de estilos para páginas da web ou aplicativos.
+4. `react-redux` - biblioteca que permite o gerenciamento de estado entre o Redux e React.
+5. `@reduxjs/toolkit` - biblioteca que simplifica e otimiza todo o processo de gerenciamento de estado que utilizam o Redux.
+6. `@types/mapbox-gl` - pacote de definições de tipos TypeScript para a biblioteca `mapbox-gl`.
+7. `@types/react-redux` - pacote de definições de tipos TypeScript para a biblioteca `react-redux`.
+8. `@types/react-map-gl` - pacote de definições de tipos TypeScript para a biblioteca `react-map-gl`.
+9. `i18next` - biblioteca que fornece suporte para carregar e gerenciar traduções de aplicativos.
+10. `react-i18next` - biblioteca que funciona em conjunto da biblioteca `i18next` para aplicativos do React.
+
+#### Objetivo
+
+No desafio foram fornecidas as seguintes instruções:
+
+Utilizando os dados geográficos fornecidos e o sprite de dados, criar uma tela com um mapa que deve realizar a animação no sprite baseado na direção do carro.
+
+##### Tarefa bônus
+
+Utilizar a velocidade do veículo para definir quão rápido ele vai se mover no trajeto.
+
+Deixar o usuário selecionar qual dos trajetos será desenhado naquele momento.
+
 ## Estrutura do projeto
 
 O projeto foi organizado em pastas, cada uma destinada a um elemento específico de acordo com sua função. A pasta `./src/assets` armazena os arquivos de imagem do projeto. A pasta `./src/components` segue a metodologia do Atomic Design, permitindo a criação de um sistema mais consistente e padronizado. A pasta `./src/css` contém o arquivo `main.css` e o arquivo `main.css.map`, que facilitam a depuração e manutenção do código. A pasta `./src/styles` armazena os arquivos SCSS de todo o projeto. A pasta `./src/store` contém os arquivos para o gerenciamento de estado de várias variáveis utilizando o reducer `./src/store/reducers/vehicleData`. A pasta `./src/lib` contém o arquivo `i18n.ts` com o código para realizar a internacionalização de todo o texto do aplicativo. A pasta `./src/locale` contém os arquivos `en.json` e `pt.json` com o objeto e suas traduções.
@@ -39,42 +75,6 @@ Em seguida, foram criados quatro componentes do React, cujos nomes são: `<CarMa
 - Todos os componentes do projeto são renderizados em `./src/App`.
   - Todos os componentes podem ser encontrados na pasta `./src/components`
     - Uma vez dentro do arquivo `./src/App` você pode navegar pelos componentes e realizar as alterações desejadas.
-
-## Video do projeto
-
-<a href="https://www.youtube.com/watch?v=QKh7RwoH_Sc">Video do projeto aqui</a>.
-
-#### Imagens
-
-<div style="display: flex; justify-content: center;">
-  <img src='./public/images/readme/img1.png' style="margin-right: 10px;">
-  <img src='./public/images/readme/img2.png'>
-</div>
-
-#### Objetivo
-
-No desafio foram fornecidas as seguintes instruções:
-
-Utilizando os dados geográficos fornecidos e o sprite de dados, criar uma tela com um mapa que deve realizar a animação no sprite baseado na direção do carro.
-
-##### Tarefa bônus
-
-Utilizar a velocidade do veículo para definir quão rápido ele vai se mover no trajeto.
-
-Deixar o usuário selecionar qual dos trajetos será desenhado naquele momento.
-
-## Bibliotecas utilizadas
-
-1. `mapbox-gl` - biblioteca de mapeamento que permite criar mapas interativos e personalizados.
-2. `react-map-gl` - biblioteca que fornece componentes React para a integração de mapas interativos. Está biblioteca funciona em conjunto com a biblioteca `mapbox-gl`.
-3. `sass` - biblioteca que permite a criação de estilos para páginas da web ou aplicativos.
-4. `react-redux` - biblioteca que permite o gerenciamento de estado entre o Redux e React.
-5. `@reduxjs/toolkit` - biblioteca que simplifica e otimiza todo o processo de gerenciamento de estado que utilizam o Redux.
-6. `@types/mapbox-gl` - pacote de definições de tipos TypeScript para a biblioteca `mapbox-gl`.
-7. `@types/react-redux` - pacote de definições de tipos TypeScript para a biblioteca `react-redux`.
-8. `@types/react-map-gl` - pacote de definições de tipos TypeScript para a biblioteca `react-map-gl`.
-9. `i18next` - biblioteca que fornece suporte para carregar e gerenciar traduções de aplicativos.
-10. `react-i18next` - biblioteca que funciona em conjunto da biblioteca `i18next` para aplicativos do React.
 
 ## Como instalar
 

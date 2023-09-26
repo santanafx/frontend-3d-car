@@ -16,6 +16,42 @@ For the development of the project, the following technologies were chosen:
 2. `Vite`, a tool known for its speed and efficiency in development.
 3. `TypeScript`, which adds optional typing to JavaScript, providing greater ease of maintenance, code robustness, improved readability, and bug reduction.
 
+## Video
+
+<a href="https://www.youtube.com/watch?v=QKh7RwoH_Sc">Video here</a>.
+
+#### Images
+
+<div style="display: flex; justify-content: center;">
+  <img src='./public/images/readme/img1.png' style="margin-right: 10px;">
+  <img src='./public/images/readme/img2.png'>
+</div>
+
+## Libraries used
+
+1. `mapbox-gl` - A mapping library that allows you to create interactive and custom maps.
+2. `react-map-gl` - A library that provides React components for integrating interactive maps. This library works in conjunction with the `mapbox-gl` library.
+3. `sass` - A library that enables the creation of styles for web pages or applications.
+4. `react-redux` - a library that allows state management between Redux and React.
+5. `@reduxjs/toolkit` - a library that simplifies and optimizes the entire state management process using Redux.
+6. `@types/mapbox-gl` - a package of TypeScript type definitions for the `mapbox-gl` library.
+7. `@types/react-redux` - a package of TypeScript type definitions for the `react-redux` library.
+8. `@types/react-map-gl` - a package of TypeScript type definitions for the `react-map-gl` library.
+9. `i18next` - a library that provides support for loading and managing application translations.
+10. `react-i18next` - a library that works in conjunction with the `i18next` library for React applications.
+
+#### Goal
+
+The challenge provided the following instructions:
+
+Using the provided geographic data and data sprite, create a screen with a map that should perform animation on the sprite based on the direction of the car.
+
+##### Bonus task
+
+Utilize the vehicle's speed to determine how fast it will move along the route.
+
+Allow the user to select which of the routes will be drawn at that moment.
+
 ## Project structure
 
 The project was organized into folders, each intended for a specific element according to its function. The `./src/assets` folder stores project image files. The `./src/components` folder follows the Atomic Design methodology, enabling the creation of a more consistent and standardized system. The `./src/css` folder contains the `main.css` file and the `main.css.map` file, which facilitate code debugging and maintenance. The `./src/styles` folder stores the SCSS files for the entire project. The `./src/store` folder contains the files for managing the state of multiple variables using the `./src/store/reducers/vehicleData` reducer. The folder `./src/lib` contains the `i18n.ts` file with the code to perform the internationalization of all the text in the application. The folder `./src/locale` contains the `en.json` and `pt.json` files with the object and its translations.
@@ -39,42 +75,6 @@ Four React components were created: `<CarMarker>`, `<VehicleRoute>`, `<BestRoute
 - All project components are rendered in `./src/App`.
   - All components can be found in the `./src/components` folder.
     - Once inside the `./src/App` file, you can navigate through the components and make the desired changes.
-
-## Video
-
-<a href="https://www.youtube.com/watch?v=QKh7RwoH_Sc">Video here</a>.
-
-#### Images
-
-<div style="display: flex; justify-content: center;">
-  <img src='./public/images/readme/img1.png' style="margin-right: 10px;">
-  <img src='./public/images/readme/img2.png'>
-</div>
-
-#### Goal
-
-The challenge provided the following instructions:
-
-Using the provided geographic data and data sprite, create a screen with a map that should perform animation on the sprite based on the direction of the car.
-
-##### Bonus task
-
-Utilize the vehicle's speed to determine how fast it will move along the route.
-
-Allow the user to select which of the routes will be drawn at that moment.
-
-## Libraries used
-
-1. `mapbox-gl` - A mapping library that allows you to create interactive and custom maps.
-2. `react-map-gl` - A library that provides React components for integrating interactive maps. This library works in conjunction with the `mapbox-gl` library.
-3. `sass` - A library that enables the creation of styles for web pages or applications.
-4. `react-redux` - a library that allows state management between Redux and React.
-5. `@reduxjs/toolkit` - a library that simplifies and optimizes the entire state management process using Redux.
-6. `@types/mapbox-gl` - a package of TypeScript type definitions for the `mapbox-gl` library.
-7. `@types/react-redux` - a package of TypeScript type definitions for the `react-redux` library.
-8. `@types/react-map-gl` - a package of TypeScript type definitions for the `react-map-gl` library.
-9. `i18next` - a library that provides support for loading and managing application translations.
-10. `react-i18next` - a library that works in conjunction with the `i18next` library for React applications.
 
 ## How to install
 
