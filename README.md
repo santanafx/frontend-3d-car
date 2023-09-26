@@ -42,13 +42,13 @@ Four React components were created: `<CarMarker>`, `<VehicleRoute>`, `<BestRoute
 
 ## Video
 
-<a href="https://www.youtube.com/watch?v=N2NJWaQwgFk">Video here</a>.
+<a href="https://www.youtube.com/watch?v=QKh7RwoH_Sc">Video here</a>.
 
 #### Images
 
 <div style="display: flex; justify-content: center;">
-  <img src='./public/images/readme/img1.png' style="margin-right: 10px;">
-  <img src='./public/images/readme/img2.png'>
+  <img src='./public/images/readme/img1.png' style="margin-right: 10px;" width="400px">
+  <img src='./public/images/readme/img2.png' width="400px">
 </div>
 
 #### Goal

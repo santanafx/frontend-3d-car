@@ -42,7 +42,7 @@ Em seguida, foram criados quatro componentes do React, cujos nomes são: `<CarMa
 
 ## Video do projeto
 
-<a href="https://www.youtube.com/watch?v=N2NJWaQwgFk">Video do projeto aqui</a>.
+<a href="https://www.youtube.com/watch?v=QKh7RwoH_Sc">Video do projeto aqui</a>.
 
 #### Imagens
 
