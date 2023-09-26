@@ -79,6 +79,7 @@ Typescript | React | HTML | SASS | Vite
 5. @reduxjs/toolkit - a library that simplifies and optimizes the entire state management process using Redux.
 6. @types/mapbox-gl - a package of TypeScript type definitions for the mapbox-gl library.
 7. @types/react-redux - a package of TypeScript type definitions for the react-redux library.
+8. @types/react-map-gl - a package of TypeScript type definitions for the react-map-gl library.
 
 ## How to install
 
