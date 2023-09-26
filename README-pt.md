@@ -1,3 +1,5 @@
+[![licence mit](https://img.shields.io/badge/licence-MIT-blue.svg)](./LICENSE)
+
 # Select Language: **English**, [Portuguese](https://github.com/santanafx/frontend-3d-car/blob/main/README-pt.md)
 
 # Sobre o projeto
@@ -6,37 +8,39 @@
 O projeto consistiu em realizar um desafio proposto pela empresa Softruck. A Softruck é uma multinacional que oferece soluções de gerenciamento com o objetivo de reduzir custos operacionais e realizar monitoramento ativo e medição de desempenho de recursos.
 </p>
 
-# O projeto
+## Tecnologias e linguagens utilizadas
+
+**Typescript** | **React** | **HTML** | **SASS** | **Vite**
 
 <p align="justify">
 Para o desenvolvimento do projeto, foram escolhidas as seguintes tecnologias:
-</p>
 
-1. React, que é uma biblioteca amplamente utilizada do JavaScript para a construção de interfaces de usuário interativas e performáticas
-2. Vite, uma ferramenta conhecida por sua velocidade e eficiência no desenvolvimento
-3. TypeScript, que adiciona tipagem opcional ao JavaScript, proporcionando maior facilidade na manutenção, robustez ao código, melhor legibilidade e redução de bugs.
-
-<p align="justify">
-O projeto foi organizado em pastas, cada uma destinada a um elemento específico de acordo com sua função. A pasta 'assets' armazena os arquivos de imagem do projeto. A pasta 'components' segue a metodologia do Atomic Design, permitindo a criação de um sistema mais consistente e padronizado. A pasta 'css' contém o arquivo 'main.css' e o arquivo "main.css.map", que facilitam a depuração e manutenção do código. A pasta 'styles' armazena os arquivos SCSS de todo o projeto. A pasta 'store' contém os arquivos para o gerenciamento de estado de várias variáveis utilizando o reducer 'vehicleData', que se encontra dentro da pasta 'reducers'.
+1. `React`, que é uma biblioteca amplamente utilizada do JavaScript para a construção de interfaces de usuário interativas e performáticas
+2. `Vite`, uma ferramenta conhecida por sua velocidade e eficiência no desenvolvimento
+3. `TypeScript`, que adiciona tipagem opcional ao JavaScript, proporcionando maior facilidade na manutenção, robustez ao código, melhor legibilidade e redução de bugs.
 </p>
 
 <p align="justify">
-Ao iniciar o projeto, uma página é carregada com um mapa obtido através do uso da API Mapbox. O mapa foi renderizado utilizando a biblioteca 'react-map-gl', que fornece componentes que possibilitam adicionar maior interação entre o usuário e o mapa. Foram adicionados os componentes 'Map', 'GeolocateControl', 'FullscreenControl' e 'NavigationControl'
+O projeto foi organizado em pastas, cada uma destinada a um elemento específico de acordo com sua função. A pasta `./src/assets` armazena os arquivos de imagem do projeto. A pasta `./src/components` segue a metodologia do Atomic Design, permitindo a criação de um sistema mais consistente e padronizado. A pasta `./src/css` contém o arquivo `main.css` e o arquivo `main.css.map`, que facilitam a depuração e manutenção do código. A pasta `./src/styles` armazena os arquivos SCSS de todo o projeto. A pasta `./src/store` contém os arquivos para o gerenciamento de estado de várias variáveis utilizando o reducer `./src/store/reducers/vehicleData`.
 </p>
-
-1. Map, possibilita renderizar o mapa na tela.
-2. GeolocateControl, possibilita o compartilhamento da localização geográfica do usuário.
-3. FullscreenControl, possibilita aumentar o mapa para preencher toda a tela.
-4. NavigationControl, adiciona botões de zomm in, zoom out e reset de direção (posição default norte).
 
 <p align="justify">
-Em seguida, foram criados quatro componentes do React, cujos nomes são: 'CarMarker', 'VehicleRoute', 'BestRoute' e 'Options'.
+Ao iniciar o projeto, uma página é carregada com um mapa obtido através do uso da API Mapbox. O mapa foi renderizado utilizando a biblioteca `react-map-gl`, que fornece componentes que possibilitam adicionar maior interação entre o usuário e o mapa. Foram adicionados os componentes `<Map>`, `<GeolocateControl>`, `<FullscreenControl>` e `<NavigationControl>`
+
+1. `<Map>`, possibilita renderizar o mapa na tela.
+2. `<GeolocateControl>`, possibilita o compartilhamento da localização geográfica do usuário.
+3. `<FullscreenControl>`, possibilita aumentar o mapa para preencher toda a tela.
+4. `<NavigationControl>`, adiciona botões de zomm in, zoom out e reset de direção (posição default norte).
 </p>
 
-1. CarMarker renderiza um carro de acordo com a latitude, longitude, velocidade e direção, permitindo que o usuário siga automaticamente o veículo com base nas coordenadas durante a rota. Neste componente, também são exibidas informações de longitude, latitude, direção e velocidade no canto inferior esquerdo da tela.
-2. VehicleRoute renderiza dinamicamente a rota do veículo (linha de cor azul) com base nas coordenadas de latitude e longitude do arquivo 'frontend_data_gps.json'. Neste componente, também são renderizados um círculo verde (ponto de início da rota) e um círculo vermelho (ponto final da rota). Os componentes 'Source' e 'Layer' da biblioteca 'react-map-gl' possibilitam a representação de pontos e linhas no mapa.
-3. BestRoute renderiza a rota mais eficiente do ponto de início da rota até o ponto final da rota. O usuário pode optar por visualizar o trajeto (linha de cor preta) ou não. Neste componente, é realizada uma requisição do tipo GET para a API Mapbox Directions.
-4. Options renderiza todos os botões do menu, incluindo 'Start route 1', 'Start route 2', 'Start route 3', 'Start route 4', 'Start route 5', 'Show Best Route', 'Enable Vehicle Tracking', 'Disable Vehicle Tracking', 'Hide Best Route' e 'Reset Route'. Neste componente, também é verificado se o carro já chegou ao seu destino final ou se solicita ao usuário que escolha uma rota.
+<p align="justify">
+Em seguida, foram criados quatro componentes do React, cujos nomes são: `<CarMarker>`, `<VehicleRoute>`, `<BestRoute>` e `<Options>`.
+
+1. `<CarMarker>` renderiza um carro de acordo com a latitude, longitude, velocidade e direção, permitindo que o usuário siga automaticamente o veículo com base nas coordenadas durante a rota. Neste componente, também são exibidas informações de longitude, latitude, direção e velocidade no canto inferior esquerdo da tela.
+2. `<VehicleRoute>` renderiza dinamicamente a rota do veículo (linha de cor azul) com base nas coordenadas de latitude e longitude do arquivo `./public/frontend_data_gps.json`. Neste componente, também são renderizados um círculo verde (ponto de início da rota) e um círculo vermelho (ponto final da rota). Os componentes `<Source>` e `<Layer>` da biblioteca `react-map-gl` possibilitam a representação de pontos e linhas no mapa.
+3. `<BestRoute>` renderiza a rota mais eficiente do ponto de início da rota até o ponto final da rota. O usuário pode optar por visualizar o trajeto (linha de cor preta) ou não. Neste componente, é realizada uma requisição do tipo GET para a API Mapbox Directions.
+4. `<Options>` renderiza todos os botões do menu, incluindo `Start route 1`, `Start route 2`, `Start route 3`, `Start route 4`, `Start route 5`, `Show Best Route`, `Enable Vehicle Tracking`, `Disable Vehicle Tracking`, `Hide Best Route` e `Reset Route`. Neste componente, também é verificado se o carro já chegou ao seu destino final ou se solicita ao usuário que escolha uma rota.
+</p>
 
 ## Video do projeto
 
@@ -66,20 +70,16 @@ Utilizar a velocidade do veículo para definir quão rápido ele vai se mover no
 Deixar o usuário selecionar qual dos trajetos será desenhado naquele momento.
 </p>
 
-## Tecnologias e linguagens utilizadas
-
-Typescript | React | HTML | SASS | Vite
-
 ## Bibliotecas utilizadas
 
-1. mapbox-gl - biblioteca de mapeamento que permite criar mapas interativos e personalizados.
-2. react-map-gl - biblioteca que fornece componentes React para a integração de mapas interativos. Está biblioteca funciona em conjunto com a biblioteca "mapbox-gl".
-3. sass - biblioteca que permite a criação de estilos para páginas da web ou aplicativos.
-4. react-redux - biblioteca que permite o gerenciamento de estado entre o Redux e React.
-5. @reduxjs/toolkit - biblioteca que simplifica e otimiza todo o processo de gerenciamento de estado que utilizam o Redux.
-6. @types/mapbox-gl - pacote de definições de tipos TypeScript para a biblioteca mapbox-gl.
-7. @types/react-redux - pacote de definições de tipos TypeScript para a biblioteca react-redux.
-8. @types/react-map-gl - pacote de definições de tipos TypeScript para a biblioteca react-map-gl.
+1. `mapbox-gl` - biblioteca de mapeamento que permite criar mapas interativos e personalizados.
+2. `react-map-gl` - biblioteca que fornece componentes React para a integração de mapas interativos. Está biblioteca funciona em conjunto com a biblioteca `mapbox-gl`.
+3. `sass` - biblioteca que permite a criação de estilos para páginas da web ou aplicativos.
+4. `react-redux` - biblioteca que permite o gerenciamento de estado entre o Redux e React.
+5. `@reduxjs/toolkit` - biblioteca que simplifica e otimiza todo o processo de gerenciamento de estado que utilizam o Redux.
+6. `@types/mapbox-gl` - pacote de definições de tipos TypeScript para a biblioteca `mapbox-gl`.
+7. `@types/react-redux` - pacote de definições de tipos TypeScript para a biblioteca `react-redux`.
+8. `@types/react-map-gl` - pacote de definições de tipos TypeScript para a biblioteca `react-map-gl`.
 
 ## Como instalar
 
