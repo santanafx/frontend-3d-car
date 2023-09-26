@@ -14,13 +14,14 @@ export default function VehicleRoute({
   longitude,
   latitude
 }: Props) {
-  const [coords, setCoords] = useState<number[]>([])
+  const [coords, setCoords] = useState<number[][]>([])
 
   useEffect(() => {
     if (coords.length === 0) {
       setCoords([start])
     } else {
       setCoords((coords) => [...coords, [longitude, latitude]])
+      console.log(coords)
     }
   }, [start, end, longitude, latitude])
 
@@ -32,7 +33,8 @@ export default function VehicleRoute({
         geometry: {
           type: 'LineString',
           coordinates: [...coords]
-        }
+        },
+        properties: {}
       }
     ]
   }

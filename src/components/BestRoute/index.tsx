@@ -7,7 +7,7 @@ type Props = {
 }
 
 export default function BestRoute({ start, end }: Props) {
-  const [coords, setCoords] = useState<number[]>([])
+  const [coords, setCoords] = useState<number[][]>([])
 
   useEffect(() => {
     getRoute()
@@ -30,7 +30,8 @@ export default function BestRoute({ start, end }: Props) {
         geometry: {
           type: 'LineString',
           coordinates: [...coords]
-        }
+        },
+        properties: {}
       }
     ]
   }
