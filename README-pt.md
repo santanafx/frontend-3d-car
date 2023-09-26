@@ -4,43 +4,35 @@
 
 # Sobre o projeto
 
-<p align="justify">
 O projeto consistiu em realizar um desafio proposto pela empresa Softruck. A Softruck é uma multinacional que oferece soluções de gerenciamento com o objetivo de reduzir custos operacionais e realizar monitoramento ativo e medição de desempenho de recursos.
-</p>
 
 ## Tecnologias e linguagens utilizadas
 
 **Typescript** | **React** | **HTML** | **SASS** | **Vite**
 
-<p align="justify">
 Para o desenvolvimento do projeto, foram escolhidas as seguintes tecnologias:
 
 1. `React`, que é uma biblioteca amplamente utilizada do JavaScript para a construção de interfaces de usuário interativas e performáticas
 2. `Vite`, uma ferramenta conhecida por sua velocidade e eficiência no desenvolvimento
 3. `TypeScript`, que adiciona tipagem opcional ao JavaScript, proporcionando maior facilidade na manutenção, robustez ao código, melhor legibilidade e redução de bugs.
-</p>
 
-<p align="justify">
+## Estrutura do projeto
+
 O projeto foi organizado em pastas, cada uma destinada a um elemento específico de acordo com sua função. A pasta `./src/assets` armazena os arquivos de imagem do projeto. A pasta `./src/components` segue a metodologia do Atomic Design, permitindo a criação de um sistema mais consistente e padronizado. A pasta `./src/css` contém o arquivo `main.css` e o arquivo `main.css.map`, que facilitam a depuração e manutenção do código. A pasta `./src/styles` armazena os arquivos SCSS de todo o projeto. A pasta `./src/store` contém os arquivos para o gerenciamento de estado de várias variáveis utilizando o reducer `./src/store/reducers/vehicleData`.
-</p>
 
-<p align="justify">
 Ao iniciar o projeto, uma página é carregada com um mapa obtido através do uso da API Mapbox. O mapa foi renderizado utilizando a biblioteca `react-map-gl`, que fornece componentes que possibilitam adicionar maior interação entre o usuário e o mapa. Foram adicionados os componentes `<Map>`, `<GeolocateControl>`, `<FullscreenControl>` e `<NavigationControl>`
 
 1. `<Map>`, possibilita renderizar o mapa na tela.
 2. `<GeolocateControl>`, possibilita o compartilhamento da localização geográfica do usuário.
 3. `<FullscreenControl>`, possibilita aumentar o mapa para preencher toda a tela.
 4. `<NavigationControl>`, adiciona botões de zomm in, zoom out e reset de direção (posição default norte).
-</p>
 
-<p align="justify">
 Em seguida, foram criados quatro componentes do React, cujos nomes são: `<CarMarker>`, `<VehicleRoute>`, `<BestRoute>` e `<Options>`.
 
 1. `<CarMarker>` renderiza um carro de acordo com a latitude, longitude, velocidade e direção, permitindo que o usuário siga automaticamente o veículo com base nas coordenadas durante a rota. Neste componente, também são exibidas informações de longitude, latitude, direção e velocidade no canto inferior esquerdo da tela.
 2. `<VehicleRoute>` renderiza dinamicamente a rota do veículo (linha de cor azul) com base nas coordenadas de latitude e longitude do arquivo `./public/frontend_data_gps.json`. Neste componente, também são renderizados um círculo verde (ponto de início da rota) e um círculo vermelho (ponto final da rota). Os componentes `<Source>` e `<Layer>` da biblioteca `react-map-gl` possibilitam a representação de pontos e linhas no mapa.
 3. `<BestRoute>` renderiza a rota mais eficiente do ponto de início da rota até o ponto final da rota. O usuário pode optar por visualizar o trajeto (linha de cor preta) ou não. Neste componente, é realizada uma requisição do tipo GET para a API Mapbox Directions.
 4. `<Options>` renderiza todos os botões do menu, incluindo `Start route 1`, `Start route 2`, `Start route 3`, `Start route 4`, `Start route 5`, `Show Best Route`, `Enable Vehicle Tracking`, `Disable Vehicle Tracking`, `Hide Best Route` e `Reset Route`. Neste componente, também é verificado se o carro já chegou ao seu destino final ou se solicita ao usuário que escolha uma rota.
-</p>
 
 ## Video do projeto
 
@@ -48,27 +40,22 @@ Em seguida, foram criados quatro componentes do React, cujos nomes são: `<CarMa
 
 #### Imagens
 
-<img align="center" src='./public/images/readme/img1.png'>
-
-<img align="center" src='./public/images/readme/img2.png'>
+<div style="display: flex; justify-content: center;">
+  <img src='./public/images/readme/img1.png' style="margin-right: 10px;">
+  <img src='./public/images/readme/img2.png'>
+</div>
 
 #### Objetivo
 
-<p align="justify">
 No desafio foram fornecidas as seguintes instruções:
 
 Utilizando os dados geográficos fornecidos e o sprite de dados, criar uma tela com um mapa que deve realizar a animação no sprite baseado na direção do carro.
 
-</p>
-
 ##### Tarefa bônus
 
-<p align="justify">
 Utilizar a velocidade do veículo para definir quão rápido ele vai se mover no trajeto.
-</p>
-<p align="justify">
+
 Deixar o usuário selecionar qual dos trajetos será desenhado naquele momento.
-</p>
 
 ## Bibliotecas utilizadas
 
@@ -88,21 +75,17 @@ Para preparar o ambiente, precisaremos ter algumas coisas instaladas no computad
 Node.js
 <a href="https://nodejs.org/pt-br">Clique aqui para instalar o Node.js</a>.
 
-<p align="justify">
 Para instalar o Node, clique no link e baixe a versão LTS (versão recomendada)
 Para verificar se foi instalado corretamente, abra o terminal e escreva node -v ou node --version
 alt text: site do Nodejs, com o botão da versão recomendada em foco por um quadrado vermelho!
-</p>
 
 <img align="center" src='./public/images/readme/instrucao-node.png'>
 
 Git
 <a href="https://git-scm.com/download/windows">Clique aqui para instalar o Git</a>.
 
-<p align="justify">
 Caso não tenha um terminal de preferência, recomendo utilizar o git bash. Para instalá-lo, haverá uma opção durante a instalação do git para permitir instalar o git bash
 alt text: imagem mostrando várias caixas selecionáveis. A caixa “Git Bash Here” está em evidência por um quadrado vermelho com uma seta apontada para ele
-</p>
 
 <img align="center" src='./public/images/readme/instrucao-git.png'>
 
