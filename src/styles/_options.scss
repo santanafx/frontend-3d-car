@@ -40,4 +40,10 @@
       color: variables.$third-color;
     }
   }
+
+  &__language {
+    position: fixed;
+    top: 5%;
+    left: 10%;
+  }
 }

@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import { Marker } from 'react-map-gl'
+import { useTranslation } from 'react-i18next'
 
 import cars from '../../assets/images/cars.png'
 
@@ -26,6 +27,8 @@ export default function CarMarker({
   follow,
   setViewStateProp
 }: Props) {
+  const { t } = useTranslation()
+
   useEffect(() => {
     if (follow === true) {
       setViewStateProp({
@@ -52,8 +55,12 @@ export default function CarMarker({
       <div className="carMarker__status">
         <p>Longitude: {longitude}</p>
         <p>Latitude: {latitude}</p>
-        <p>Direction: {direction}</p>
-        <p>Speed: {speed}</p>
+        <p>
+          {t('direction')}: {direction}
+        </p>
+        <p>
+          {t('speed')}: {speed}
+        </p>
       </div>
     </>
   )

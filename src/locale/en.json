@@ -1,0 +1,20 @@
+{
+  "translation": {
+    "chooseRouteBelow": "Choose one of the routes below.",
+    "vehicleInMotion": "The vehicle is in motion...",
+    "vehicleStatus": "The vehicle has reached the final destination. Click 'Reset Route' to choose a new route.",
+    "startRoute1": "Start Route 1",
+    "startRoute2": "Start Route 2",
+    "startRoute3": "Start Route 3",
+    "startRoute4": "Start Route 4",
+    "startRoute5": "Start Route 5",
+    "resetRoute": "Reset Route",
+    "showBestRoute": "Show Best Route",
+    "hideBestRoute": "Hide Best Route",
+    "enableVehicleTracking": "Enable Vehicle Tracking",
+    "disableVehicleTracking": "Disable Vehicle Tracking",
+    "changeLanguage": "Change to EN",
+    "direction": "Direction",
+    "speed": "Speed"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "translation": {
+    "chooseRouteBelow": "Escolha uma das rotas abaixo.",
+    "vehicleInMotion": "Veículo em movimento...",
+    "vehicleStatus": "O veículo chegou ao destino final. Clique em 'Resetar Rota' para escolher uma nova rota.",
+    "startRoute1": "Iniciar Rota 1",
+    "startRoute2": "Iniciar Rota 2",
+    "startRoute3": "Iniciar Rota 3",
+    "startRoute4": "Iniciar Rota 4",
+    "startRoute5": "Iniciar Rota 5",
+    "resetRoute": "Resetar Rota",
+    "showBestRoute": "Exibir Melhor Rota",
+    "hideBestRoute": "Esconder Melhor Rota",
+    "enableVehicleTracking": "Ativar Rastreamento de Veículo",
+    "disableVehicleTracking": "Desativar Rastreamento de Veículo",
+    "changeLanguage": "Trocar para PT-BR",
+    "direction": "Direção",
+    "speed": "Velocidade"
+  }
+}

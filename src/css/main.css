@@ -61,6 +61,11 @@
 .options__container__button:hover {
   color: #d2d2d2;
 }
+.options__container__language {
+  position: fixed;
+  top: 5%;
+  left: 10%;
+}
 
 * {
   padding: 0;
