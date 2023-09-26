@@ -34,6 +34,12 @@ Four React components were created: `<CarMarker>`, `<VehicleRoute>`, `<BestRoute
 3. `<BestRoute>` renders the most efficient route from the starting point of the route to the endpoint. The user can choose to view the path (a black line) or not. In this component, a GET request is made to the Mapbox Directions API.
 4. `<Options>` renders all the menu buttons, including `Start route 1`, `Start route 2`, `Start route 3`, `Start route 4`, `Start route 5`, `Show Best Route`, `Enable Vehicle Tracking`, `Disable Vehicle Tracking`, `Hide Best Route` and `Reset Route`.' In this component, it is also checked whether the car has already reached its final destination or if the user is prompted to choose a route.
 
+## How to Locate Myself in the Project?
+
+- All project components are rendered in `./src/App`.
+  - All components can be found in the `./src/components` folder.
+    - Once inside the `./src/App` file, you can navigate through the components and make the desired changes.
+
 ## Video
 
 <a href="https://www.youtube.com/watch?v=N2NJWaQwgFk">Video here</a>.
