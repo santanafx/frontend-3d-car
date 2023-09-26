@@ -47,8 +47,8 @@ Four React components were created: `<CarMarker>`, `<VehicleRoute>`, `<BestRoute
 #### Images
 
 <div style="display: flex; justify-content: center;">
-  <img src='./public/images/readme/img1.png' style="margin-right: 10px;" width="400px">
-  <img src='./public/images/readme/img2.png' width="400px">
+  <img src='./public/images/readme/img1.png' style="margin-right: 10px;">
+  <img src='./public/images/readme/img2.png'>
 </div>
 
 #### Goal
