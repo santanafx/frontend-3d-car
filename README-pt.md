@@ -2,10 +2,6 @@
 
 # Select Language: **English**, [Portuguese](https://github.com/santanafx/frontend-3d-car/blob/main/README-pt.md)
 
-# Sobre o projeto
-
-O projeto consistiu em realizar um desafio proposto pela empresa Softruck. A Softruck é uma multinacional que oferece soluções de gerenciamento com o objetivo de reduzir custos operacionais e realizar monitoramento ativo e medição de desempenho de recursos.
-
 ## Tecnologias e linguagens utilizadas
 
 **Typescript** | **React** | **HTML** | **SASS** | **Vite**
